@@ -2,30 +2,29 @@
 <html lang="en">
   <head>
     <!--
-      Contact page for visitors to get in touch with the NahapetFX team.
-      Includes a simple contact form and company details.
+      Support page for visitors seeking assistance with MyPasSword or
+      other NahapetFX applications.
     -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — NahapetFX</title>
+    <title>Support — NahapetFX</title>
     <meta
       name="description"
-      content="Get in touch with the NahapetFX team for questions, support or feedback about MyPasSword."
+      content="Get support for MyPasSword and other NahapetFX applications."
     />
     <link rel="icon" href="images/icon.png" />
     <meta property="og:image" content="images/icon.png" />
-    <meta property="og:title" content="Contact — NahapetFX" />
+    <meta property="og:title" content="Support — NahapetFX" />
     <meta
       property="og:description"
-      content="Get in touch with the NahapetFX team for questions, support or feedback about MyPasSword."
+      content="Get support for MyPasSword and other NahapetFX applications."
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
       <nav>
-        <!-- Make the logo a link back to the home page -->
         <a href="index.html" class="logo">NahapetFX</a>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -36,55 +35,40 @@
     </header>
     <main>
       <div class="container">
-        <h1>Contact Us</h1>
+        <h1>Support</h1>
         <p>
-          We'd love to hear from you! Whether you have a question about
-          features, pricing or anything else, our team is ready to
-          answer all your questions.
+          Need help with MyPasSword or have questions about our products?
+          We're here to assist you. Use the contact form below or reach
+          us directly via email.
         </p>
         <div class="cards">
           <div class="card">
-            <h3>Get in Touch</h3>
-            <form
-              id="contact-form"
-              action="mailto:Arshakyan.Nahapet@gmail.com"
-              method="post"
-              enctype="text/plain"
-            >
+            <h3>Support Contact Form</h3>
+            <form id="support-form">
               <div>
-                <label for="firstName">First Name</label>
+                <label for="support-name">Name</label>
                 <input
                   type="text"
-                  id="firstName"
-                  name="First Name"
+                  id="support-name"
+                  name="name"
                   required
                   aria-required="true"
                 />
               </div>
               <div>
-                <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="Last Name"
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <label for="email">Email</label>
+                <label for="support-email">Email</label>
                 <input
                   type="email"
-                  id="email"
+                  id="support-email"
                   name="email"
                   required
                   aria-required="true"
                 />
               </div>
               <div>
-                <label for="message">Message</label>
+                <label for="support-message">Message</label>
                 <textarea
-                  id="message"
+                  id="support-message"
                   name="message"
                   rows="5"
                   required
@@ -96,7 +80,7 @@
                   type="submit"
                   class="button"
                   style="width: max-content;"
-                  aria-label="Send message"
+                  aria-label="Send support message"
                 >
                   Send Message
                 </button>
@@ -104,13 +88,12 @@
             </form>
           </div>
           <div class="card">
-            <h3>Contact Details</h3>
+            <h3>Other Ways to Reach Us</h3>
+            <p>Email: <a href="mailto:support@nahapetfx.com">support@nahapetfx.com</a></p>
             <p>
-              Email:
-              <a href="mailto:info@nahapetfx.com">info@nahapetfx.com</a>
+              For general enquiries, please visit our
+              <a href="contact.html">contact page</a>.
             </p>
-            <p>Location: UAE, Dubai</p>
-            <p>Business Hours: Monday – Friday, 9:00&nbsp;AM – 5:00&nbsp;PM (PST)</p>
           </div>
         </div>
       </div>
@@ -124,13 +107,12 @@
       <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
     </footer>
     <script>
-      // Keep the copyright year current
       document.getElementById('year').textContent = new Date().getFullYear();
-      // The contact form uses a mailto action to send messages directly to
-      // Arshakyan.Nahapet@gmail.com. When the visitor submits the form,
-      // their default mail client will open with a new message pre‑filled
-      // with the form contents. No custom JavaScript submission handler is
-      // needed here.
+      document.getElementById('support-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        alert('Thank you for reaching out! Our support team will contact you soon.');
+        event.target.reset();
+      });
     </script>
   </body>
 </html>

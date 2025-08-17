@@ -8,13 +8,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Apps – NahapetFX</title>
+    <title>Apps — NahapetFX</title>
+    <meta
+      name="description"
+      content="Discover applications by NahapetFX, including the MyPasSword password manager."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="Apps — NahapetFX" />
+    <meta
+      property="og:description"
+      content="Discover applications by NahapetFX, including the MyPasSword password manager."
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">NahapetFX</div>
+        <!-- Make the logo a link back to the home page -->
+        <a href="index.html" class="logo">NahapetFX</a>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="apps.html">Apps</a></li>
@@ -26,8 +38,8 @@
       <div class="container">
         <h1>Our Apps</h1>
         <p>
-          At NahapetFX we create applications that empower you to stay
-          secure and productive. Explore our current offerings below.
+          <!-- Updated company mission statement for the apps page -->
+          At NahapetFX we create applications for professional magicians.
         </p>
         <div class="cards">
           <div class="card">
@@ -41,14 +53,10 @@
                 box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);"
             />
             <h2 style="text-align: center;">MyPasSword</h2>
-            <p>
-              Manage and protect your passwords with our easy‑to‑use,
-              secure password manager. MyPasSword keeps your credentials
-              safe and accessible across all your devices.
-            </p>
+            <!-- Removed detailed description from the app card as requested -->
             <div style="text-align: center;">
               <a
-                href="#"
+                href="https://apps.apple.com/app/idXXXXXXXXX"
                 class="button"
                 aria-label="Download MyPasSword from the App Store"
                 >Download</a
@@ -59,6 +67,11 @@
       </div>
     </main>
     <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
       <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
     </footer>
     <script>

@@ -61,6 +61,31 @@ nav {
 nav .logo {
   font-weight: 700;
   font-size: 1.5rem;
+  /* Make the logo anchor appear as plain text (remove default
+     underline and set colour). When hovered or focused it
+     behaves like other navigation links via the nav a rules. */
+  text-decoration: none;
+  color: var(--text-color);
+  /* Give the logo a pill-like shape so it behaves like a button.
+     Apply neomorphic shadows similar to other buttons. */
+  padding: calc(var(--spacer) * 0.5) calc(var(--spacer) * 1);
+  border-radius: var(--radius);
+  box-shadow: 6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+  transition: box-shadow 0.2s ease, color 0.2s ease;
+}
+
+/* Hover and focus state for the logo button. Invert the shadows
+ * so it appears pressed when interacted with. */
+nav .logo:hover,
+nav .logo:focus {
+  box-shadow: inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+  color: var(--primary-color);
+  outline: none;
+  /* Override nav a:hover background so the logo button doesn't
+     pick up the blue background defined for generic nav links */
+  background: var(--bg-color);
 }
 
 nav ul {

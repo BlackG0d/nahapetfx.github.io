@@ -9,13 +9,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NahapetFX – MyPasSword</title>
+    <title>NahapetFX — MyPasSword</title>
+    <!-- Provide a concise description of the application for search engines -->
+    <meta
+      name="description"
+      content="MyPasSword by NahapetFX is a secure, neomorphic password manager designed for magicians and entertainers."
+    />
+    <!-- Favicon and Open Graph image for social previews -->
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="NahapetFX — MyPasSword" />
+    <meta
+      property="og:description"
+      content="Manage your passwords with MyPasSword – the secure password manager created by NahapetFX."
+    />
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "MyPasSword",
+        "operatingSystem": "iOS",
+        "applicationCategory": "EntertainmentApplication",
+        "publisher": { "@type": "Organization", "name": "NahapetFX" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "downloadUrl": "https://apps.apple.com/app/idXXXXXXXXX"
+      }
+    </script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <header>
       <nav>
-        <div class="logo">NahapetFX</div>
+        <!-- Make the logo a link back to the home page -->
+        <a href="index.html" class="logo">NahapetFX</a>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="apps.html">Apps</a></li>
@@ -28,14 +55,16 @@
            provides a call‑to‑action button -->
       <div class="container hero">
         <div class="hero-text">
-          <h1>Your Passwords, Protected</h1>
-          <p>
-            Experience secure, seamless password management with
-            <strong>MyPasSword</strong>. Save, sync and manage all your
-            passwords in one beautifully designed app.
-          </p>
+          <!--
+            Updated hero copy to better align with the brand’s messaging. The
+            heading now simply states the app name and the tagline is a more
+            succinct description of what the app is about. Removing the
+            product description keeps the hero section clean and focused.
+          -->
+          <h1>MyPasSword</h1>
+          <p>Not every secret belongs behind a lock.</p>
           <a
-            href="#"
+            href="https://apps.apple.com/app/idXXXXXXXXX"
             class="button"
             aria-label="Download MyPasSword from the App Store"
             >Download on the App&nbsp;Store</a
@@ -52,35 +81,14 @@
           />
         </div>
       </div>
-      <!-- Feature cards highlight the key benefits of the app -->
-      <div class="container">
-        <h2 style="text-align: center; margin-bottom: 1rem;">Features</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Secure Storage</h3>
-            <p>
-              Your passwords are stored securely using industry‑standard
-              encryption technologies to ensure your data remains private.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Seamless Sync</h3>
-            <p>
-              Access your passwords on all your devices with real‑time cloud
-              synchronisation. Never lose a login again.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Auto&nbsp;Fill</h3>
-            <p>
-              Quickly fill in login forms and save time with our intelligent
-              auto‑fill feature. Spend less time typing and more time doing.
-            </p>
-          </div>
-        </div>
-      </div>
+      <!-- Feature section temporarily removed as requested. -->
     </main>
     <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
       <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
     </footer>
     <script>
