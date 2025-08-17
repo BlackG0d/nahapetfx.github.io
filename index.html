@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>NahapetFX</title>
-</head>
-<body>
-    <h1>Привет! Добро пожаловать на мой сайт 🚀</h1>
-</body>
+<html lang="en">
+  <head>
+    <!--
+      Main landing page for the NahapetFX documentation site.
+      This page introduces visitors to the MyPasSword application
+      with a brief description and a prominent download link.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NahapetFX – MyPasSword</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">NahapetFX</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <!-- Hero section introduces the application and
+           provides a call‑to‑action button -->
+      <div class="container hero">
+        <div class="hero-text">
+          <h1>Your Passwords, Protected</h1>
+          <p>
+            Experience secure, seamless password management with
+            <strong>MyPasSword</strong>. Save, sync and manage all your
+            passwords in one beautifully designed app.
+          </p>
+          <a
+            href="#"
+            class="button"
+            aria-label="Download MyPasSword from the App Store"
+            >Download on the App&nbsp;Store</a
+          >
+        </div>
+        <div class="hero-img">
+          <img
+            src="images/icon.png"
+            alt="MyPasSword app icon"
+            width="300"
+            height="300"
+            style="border-radius: var(--radius);
+              box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);"
+          />
+        </div>
+      </div>
+      <!-- Feature cards highlight the key benefits of the app -->
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 1rem;">Features</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Secure Storage</h3>
+            <p>
+              Your passwords are stored securely using industry‑standard
+              encryption technologies to ensure your data remains private.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Seamless Sync</h3>
+            <p>
+              Access your passwords on all your devices with real‑time cloud
+              synchronisation. Never lose a login again.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Auto&nbsp;Fill</h3>
+            <p>
+              Quickly fill in login forms and save time with our intelligent
+              auto‑fill feature. Spend less time typing and more time doing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      // Update the copyright year automatically
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>

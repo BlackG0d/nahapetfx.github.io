@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      Applications page listing the software created by NahapetFX.
+      At present this page showcases the MyPasSword password manager.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apps – NahapetFX</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">NahapetFX</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Our Apps</h1>
+        <p>
+          At NahapetFX we create applications that empower you to stay
+          secure and productive. Explore our current offerings below.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <img
+              src="images/icon.png"
+              alt="MyPasSword app icon"
+              width="150"
+              height="150"
+              style="display: block; margin: 0 auto 1.25rem;
+                border-radius: var(--radius);
+                box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);"
+            />
+            <h2 style="text-align: center;">MyPasSword</h2>
+            <p>
+              Manage and protect your passwords with our easy‑to‑use,
+              secure password manager. MyPasSword keeps your credentials
+              safe and accessible across all your devices.
+            </p>
+            <div style="text-align: center;">
+              <a
+                href="#"
+                class="button"
+                aria-label="Download MyPasSword from the App Store"
+                >Download</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
