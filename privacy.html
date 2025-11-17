@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      Privacy policy page for the NahapetFX documentation site.
+      Update this text with your actual privacy practices before
+      publishing to the public.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — MyPasSwordX Generator</title>
+    <meta
+      name="description"
+      content="Read the privacy policy for MyPasSwordX by NahapetFX."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="Privacy Policy — NahapetFX" />
+    <meta
+      property="og:description"
+      content="Learn about the data practices and privacy policy for MyPasSwordX."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">NahapetFX</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Privacy Policy — MyPasSwordX Generator</h1>
+        
+        <p><strong>Last updated:</strong> <span id="current-date"></span></p>
+
+        <h2>Overview</h2>
+        <p>
+          MyPasSwordX Generator is designed to operate primarily offline and does not collect personal information or store generated passwords.
+        </p>
+        <p>
+          Most features work without an internet connection.
+        </p>
+
+        <h2>Data We Do Not Collect</h2>
+        <p>We do not collect, store, or transmit:</p>
+        <ul>
+          <li>Names</li>
+          <li>Device information</li>
+          <li>Personally identifiable data beyond the optional recovery email</li>
+          <li>Generated passwords</li>
+          <li>User behavior or analytics</li>
+          <li>App usage data</li>
+        </ul>
+        <p>
+          All password generation and configuration settings remain stored locally on the user's device.
+        </p>
+
+        <h2>Activation Key (Optional)</h2>
+        <p>Some advanced configuration features require a valid activation key.</p>
+        <p>
+          When a user enters a license key, the app performs a secure online validation to check whether the key is:
+        </p>
+        <ul>
+          <li>Valid</li>
+          <li>Active</li>
+          <li>Already assigned to a device</li>
+        </ul>
+        <p>
+          No additional personal data is transmitted during this validation.
+        </p>
+
+        <h2>Recovery Email (Optional)</h2>
+        <p>
+          Users may enter an email address to allow future restoration of their activation license if the device is changed or reset.
+        </p>
+        <p>This email is stored only for:</p>
+        <ul>
+          <li>License recovery</li>
+          <li>License ownership confirmation</li>
+        </ul>
+        <p>
+          We do not share or sell recovery emails and do not use them for marketing or analytics.
+        </p>
+
+        <h2>No Third-Party Services</h2>
+        <p>
+          The app does not use advertising services, analytics platforms, external data processors, or tracking frameworks.
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+          All license-related data is stored securely and used solely for legitimate licensing purposes.
+        </p>
+        <p>
+          Users remain fully in control of their content and generated passwords.
+        </p>
+
+        <h2>Children's Privacy</h2>
+        <p>
+          The application does not collect personal information and may be used by individuals of any age.
+        </p>
+
+        <h2>Policy Changes</h2>
+        <p>
+          This policy may be updated if functionality changes. The latest version will always be available on this page.
+        </p>
+
+        <h2>Contact</h2>
+        <p>If you have any questions, please contact:</p>
+        <p>📧 <a href="mailto:support@nahapetfx.com">support@nahapetfx.com</a></p>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Set current date
+      const dateElement = document.getElementById('current-date');
+      if (dateElement) {
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        dateElement.textContent = `${day}.${month}.${year}`;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MyPasSwordX – by NahapetFX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #6b53c8;
+      --bg-dark: #5a45b3;
+      --card: #7b62d9;
+      --white: #ffffff;
+      --text-main: #f5f3ff;
+      --text-sub: #ddd4ff;
+      --button: #7f66ff;
+      --button-hover: #957dff;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.25);
+      --radius-xl: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      background: radial-gradient(circle at top, var(--bg) 0, var(--bg-dark) 60%, #3f2d86 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 40px;
+    }
+
+    /* HEADER */
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 56px;
+    }
+
+    .brand {
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: linear-gradient(145deg, #7a60df, #5b47b4);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    .nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-text {
+      max-width: 540px;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.18);
+      font-size: 12px;
+      color: var(--text-sub);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: 44px;
+      line-height: 1.08;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+      max-width: 420px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--button), var(--button-hover));
+      color: var(--white);
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 45px rgba(0, 0, 0, 0.35);
+      opacity: 0.96;
+    }
+
+    .btn-ghost {
+      padding: 11px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(0, 0, 0, 0.15);
+      color: var(--text-sub);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--white);
+    }
+
+    .hero-note {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    /* HERO VISUAL */
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      width: 320px;
+      max-width: 100%;
+      padding: 26px 22px;
+      border-radius: 32px;
+      background: linear-gradient(145deg, #8066e9, #5d46bd);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.2), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-chip {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(0, 0, 0, 0.22);
+      color: var(--text-sub);
+    }
+
+    .hero-card-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .hero-brain {
+      position: relative;
+      z-index: 1;
+      margin: 6px auto 0;
+      width: 150px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-brain img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 16px 22px rgba(0, 0, 0, 0.35));
+    }
+
+    .hero-card-footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--text-sub);
+    }
+
+    .hero-dot-row {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .hero-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -1000px 0;
+      }
+      100% {
+        background-position: 1000px 0;
+      }
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ANIMATION CLASSES */
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-slide-left {
+      animation: slideInLeft 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-slide-right {
+      animation: slideInRight 0.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .animate-delay-1 {
+      animation-delay: 0.1s;
+    }
+
+    .animate-delay-2 {
+      animation-delay: 0.2s;
+    }
+
+    .animate-delay-3 {
+      animation-delay: 0.3s;
+    }
+
+    .animate-delay-4 {
+      animation-delay: 0.4s;
+    }
+
+    .animate-delay-5 {
+      animation-delay: 0.5s;
+    }
+
+    /* ENHANCED ELEMENT ANIMATIONS */
+    .hero-card {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-brain img {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .hero-pill {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    /* SECTIONS */
+    .section {
+      margin-top: 120px;
+      padding-top: 40px;
+      scroll-margin-top: 80px;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--text-sub);
+      text-align: center;
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FEATURES GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .feature-card {
+      padding: 32px 24px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.4), rgba(90, 69, 179, 0.4));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.6), rgba(90, 69, 179, 0.6));
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-description {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* APPS SECTION */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .app-card {
+      padding: 40px 32px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.5), rgba(90, 69, 179, 0.5));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .app-card:hover {
+      transform: translateY(-12px) scale(1.03);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.7), rgba(90, 69, 179, 0.7));
+    }
+
+    .app-icon {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .app-card:hover .app-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .app-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .app-description {
+      font-size: 15px;
+      color: var(--text-sub);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    /* SUPPORT SECTION */
+    .support-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.4), rgba(90, 69, 179, 0.4));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    .support-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .support-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-main);
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .support-link:hover {
+      background: rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateX(8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* PREMIUM / LICENSE SECTION */
+    .premium-content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 32px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(127, 102, 255, 0.5), rgba(90, 69, 179, 0.5));
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    .premium-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 165, 0, 0.3));
+      border: 1px solid rgba(255, 215, 0, 0.5);
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffd700;
+      margin-bottom: 24px;
+    }
+
+    .premium-features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 32px 0;
+      text-align: left;
+    }
+
+    .premium-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .premium-feature-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+
+    .premium-feature-text {
+      flex: 1;
+    }
+
+    .premium-feature-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .premium-feature-description {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.5;
+    }
+
+    .premium-cta {
+      margin-top: 32px;
+    }
+
+    .btn-premium {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #ffd700, #ffa500);
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.4);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn-premium:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.5);
+      background: linear-gradient(135deg, #ffed4e, #ffb84d);
+    }
+
+    /* FAQ SECTION */
+    .faq-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      padding: 24px;
+      margin-bottom: 20px;
+      border-radius: var(--radius-xl);
+      background: linear-gradient(145deg, rgba(123, 98, 217, 0.4), rgba(90, 69, 179, 0.4));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .faq-q-label {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .faq-q-text {
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .faq-answer {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding-left: 0;
+    }
+
+    .faq-arrow {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .faq-a-text {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 1.6;
+    }
+
+    /* SMOOTH SCROLL */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER ENHANCEMENTS */
+    .header {
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .brand {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .brand:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav a {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .nav a:hover::after {
+      width: 80%;
+    }
+
+    /* HERO ENHANCEMENTS */
+    .hero-title {
+      background: linear-gradient(135deg, var(--white) 0%, var(--text-sub) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .section {
+        margin-top: 80px;
+      }
+
+      .section-title {
+        font-size: 28px;
+      }
+
+      .features-grid,
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .premium-features-list {
+        grid-template-columns: 1fr;
+      }
+
+      .premium-content {
+        padding: 32px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="brand">NahapetFX</div>
+      <nav class="nav">
+        <a href="#apps">Apps</a>
+        <a href="#features">Features</a>
+        <a href="#support">Support</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero">
+      <!-- LEFT: TEXT -->
+      <section class="hero-text">
+        <div class="hero-pill animate-fade-in">
+          <span>🔐 MyPasSwordX</span>
+          <span>• smart password generator</span>
+        </div>
+
+        <h1 class="hero-title animate-fade-in-up animate-delay-1">
+          Not every secret belongs behind a lock.
+        </h1>
+
+        <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+          MyPasSwordX helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.
+        </p>
+
+        <div class="hero-buttons animate-fade-in-up animate-delay-3">
+          <a class="btn-primary" href="https://apps.apple.com" target="_blank" rel="noopener">
+            Download on the App Store
+          </a>
+
+          <a class="btn-ghost" href="#features">
+            Learn more
+          </a>
+        </div>
+
+        <p class="hero-note animate-fade-in-up animate-delay-4">
+          No accounts. No tracking. Your passwords stay on your device.
+        </p>
+      </section>
+
+      <!-- RIGHT: VISUAL CARD -->
+      <aside class="hero-visual">
+        <div class="hero-card animate-slide-right animate-delay-2">
+          <div class="hero-card-header">
+            <div class="hero-card-title">MyPasSwordX</div>
+            <div class="hero-chip">Offline • Secure</div>
+          </div>
+
+          <div class="hero-brain">
+            <img src="images/icon.png" alt="MyPasSwordX icon" />
+          </div>
+
+          <div class="hero-card-footer">
+            <div class="hero-dot-row">
+              <span class="hero-dot"></span>
+              <span class="hero-dot"></span>
+              <span class="hero-dot"></span>
+              <span class="hero-dot"></span>
+            </div>
+            <div>Generate. Copy. Use. Your secrets stay with you.</div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- APPS SECTION -->
+    <section id="apps" class="section">
+      <h2 class="section-title animate-fade-in-up">Our Apps</h2>
+      <p class="section-subtitle animate-fade-in-up animate-delay-1">
+        Discover applications created by NahapetFX
+      </p>
+      <div class="apps-grid">
+        <div class="app-card animate-fade-in-up animate-delay-2">
+          <img src="images/icon.png" alt="MyPasSwordX" class="app-icon" />
+          <h3 class="app-title">MyPasSwordX</h3>
+          <p class="app-description">
+            A smart password generator that helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.
+          </p>
+          <a href="apps.html" class="btn-primary">View Details</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features" class="section">
+      <h2 class="section-title animate-fade-in-up">Features</h2>
+      <p class="section-subtitle animate-fade-in-up animate-delay-1">
+        Everything you need for secure password management
+      </p>
+      <div class="features-grid">
+        <div class="feature-card animate-fade-in-up animate-delay-2">
+          <span class="feature-icon">🔒</span>
+          <h3 class="feature-title">Secure & Offline</h3>
+          <p class="feature-description">
+            All password generation happens locally on your device. No internet connection required, no data sent to servers.
+          </p>
+        </div>
+        <div class="feature-card animate-fade-in-up animate-delay-3">
+          <span class="feature-icon">⚡</span>
+          <h3 class="feature-title">Lightning Fast</h3>
+          <p class="feature-description">
+            Generate strong passwords in seconds. Copy and use them immediately without any delays or complications.
+          </p>
+        </div>
+        <div class="feature-card animate-fade-in-up animate-delay-4">
+          <span class="feature-icon">🎯</span>
+          <h3 class="feature-title">Customizable</h3>
+          <p class="feature-description">
+            Adjust password length, include special characters, numbers, and more. Tailor passwords to your specific needs.
+          </p>
+        </div>
+        <div class="feature-card animate-fade-in-up animate-delay-5">
+          <span class="feature-icon">👤</span>
+          <h3 class="feature-title">Private</h3>
+          <p class="feature-description">
+            No accounts, no tracking, no cloud storage. Your passwords stay on your device and never leave it.
+          </p>
+        </div>
+        <div class="feature-card animate-fade-in-up animate-delay-2">
+          <span class="feature-icon">✨</span>
+          <h3 class="feature-title">Simple Interface</h3>
+          <p class="feature-description">
+            Clean, intuitive design that makes password generation effortless. No learning curve required.
+          </p>
+        </div>
+        <div class="feature-card animate-fade-in-up animate-delay-3">
+          <span class="feature-icon">🛡️</span>
+          <h3 class="feature-title">Strong Security</h3>
+          <p class="feature-description">
+            Uses cryptographically secure random number generation to ensure your passwords are truly random and secure.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIUM / LICENSE SECTION -->
+    <section id="premium" class="section">
+      <h2 class="section-title animate-fade-in-up">Upgrade to Extended Features</h2>
+      <div class="premium-content animate-fade-in-up animate-delay-2">
+        <p style="font-size: 18px; margin-bottom: 32px; color: var(--text-main); line-height: 1.6;">
+          A license key unlocks advanced features and additional customization settings.<br>
+          This upgrade is optional and not required for normal use of the app.
+        </p>
+        <div class="premium-features-list">
+          <div class="premium-feature-item">
+            <span class="premium-feature-icon">📤</span>
+            <div class="premium-feature-text">
+              <div class="premium-feature-title">Export Passwords</div>
+              <div class="premium-feature-description">
+                Export your generated passwords to various formats (CSV, JSON, TXT) for backup and portability.
+              </div>
+            </div>
+          </div>
+          <div class="premium-feature-item">
+            <span class="premium-feature-icon">⚙️</span>
+            <div class="premium-feature-text">
+              <div class="premium-feature-title">Advanced Settings</div>
+              <div class="premium-feature-description">
+                Access detailed customization options, advanced password patterns, and fine-tuned generation rules.
+              </div>
+            </div>
+          </div>
+          <div class="premium-feature-item">
+            <span class="premium-feature-icon">📊</span>
+            <div class="premium-feature-text">
+              <div class="premium-feature-title">Password History</div>
+              <div class="premium-feature-description">
+                Keep track of your generated passwords with an extended history and search functionality.
+              </div>
+            </div>
+          </div>
+          <div class="premium-feature-item">
+            <span class="premium-feature-icon">🎨</span>
+            <div class="premium-feature-text">
+              <div class="premium-feature-title">Custom Templates</div>
+              <div class="premium-feature-description">
+                Create and save custom password templates for different use cases and requirements.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="premium-cta">
+          <a href="contact.html" class="btn-premium">
+            <span>Get License Key</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="section">
+      <h2 class="section-title animate-fade-in-up">Frequently Asked Questions</h2>
+      <div class="faq-content">
+        <div class="faq-item animate-fade-in-up animate-delay-1">
+          <div class="faq-question">
+            <span class="faq-q-label">Q:</span>
+            <span class="faq-q-text">Do I need a license key to use the app?</span>
+          </div>
+          <div class="faq-answer">
+            <span class="faq-arrow">➡️</span>
+            <span class="faq-a-text">No. The app works fully without activation. The key is only for advanced configuration.</span>
+          </div>
+        </div>
+
+        <div class="faq-item animate-fade-in-up animate-delay-2">
+          <div class="faq-question">
+            <span class="faq-q-label">Q:</span>
+            <span class="faq-q-text">What does the activation key unlock?</span>
+          </div>
+          <div class="faq-answer">
+            <span class="faq-arrow">➡️</span>
+            <span class="faq-a-text">It enables additional customization options designed for users with specific workflows.</span>
+          </div>
+        </div>
+
+        <div class="faq-item animate-fade-in-up animate-delay-3">
+          <div class="faq-question">
+            <span class="faq-q-label">Q:</span>
+            <span class="faq-q-text">Is this subscription?</span>
+          </div>
+          <div class="faq-answer">
+            <span class="faq-arrow">➡️</span>
+            <span class="faq-a-text">No. It's a one-time upgrade.</span>
+          </div>
+        </div>
+
+        <div class="faq-item animate-fade-in-up animate-delay-4">
+          <div class="faq-question">
+            <span class="faq-q-label">Q:</span>
+            <span class="faq-q-text">Does the license connect to a server?</span>
+          </div>
+          <div class="faq-answer">
+            <span class="faq-arrow">➡️</span>
+            <span class="faq-a-text">No. The key works offline.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT SECTION -->
+    <section id="support" class="section">
+      <h2 class="section-title animate-fade-in-up">Support</h2>
+      <p class="section-subtitle animate-fade-in-up animate-delay-1">
+        Need help? We're here for you
+      </p>
+      <div class="support-content animate-fade-in-up animate-delay-2">
+        <p style="text-align: center; margin-bottom: 24px; color: var(--text-sub);">
+          Have questions about MyPasSwordX or need assistance? Get in touch with our support team.
+        </p>
+        <div class="support-links">
+          <a href="support.html" class="support-link">
+            📧 Contact Support
+          </a>
+          <a href="privacy.html" class="support-link">
+            🔐 Privacy Policy
+          </a>
+          <a href="terms.html" class="support-link">
+            📄 Terms of Use
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animated elements
+    document.querySelectorAll('.animate-fade-in-up, .animate-slide-left, .animate-slide-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      Applications page listing the software created by NahapetFX.
+      At present this page showcases the MyPasSwordX password manager.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apps — NahapetFX</title>
+    <meta
+      name="description"
+      content="Discover applications by NahapetFX, including the MyPasSwordX password manager."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="Apps — NahapetFX" />
+    <meta
+      property="og:description"
+      content="Discover applications by NahapetFX, including the MyPasSwordX password manager."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- Make the logo a link back to the home page -->
+        <a href="index.html" class="logo">NahapetFX</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Our Apps</h1>
+        <p>
+          <!-- Updated company mission statement for the apps page -->
+          At NahapetFX we create applications for professional magicians.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <img
+              src="images/icon.png"
+              alt="MyPasSwordX app icon"
+              width="150"
+              height="150"
+              style="display: block; margin: 0 auto 1.25rem;"
+            />
+            <h2 style="text-align: center;">MyPasSwordX</h2>
+            <!-- Removed detailed description from the app card as requested -->
+            <div style="text-align: center;">
+              <a
+                href="https://apps.apple.com/app/idXXXXXXXXX"
+                class="button"
+                aria-label="Download MyPasSwordX from the App Store"
+                >Download</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

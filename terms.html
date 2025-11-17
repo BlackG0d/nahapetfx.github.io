@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      Terms of Use page for the NahapetFX documentation site.
+      This page outlines the conditions under which visitors may use
+      the MyPasSwordX application. Content reflects the latest terms
+      provided by the company.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Use — MyPasSwordX Generator</title>
+    <meta
+      name="description"
+      content="Review the Terms of Use for MyPasSwordX by NahapetFX."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="Terms of Use — NahapetFX" />
+    <meta
+      property="og:description"
+      content="Understand the conditions under which you may use the MyPasSwordX application."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html" class="logo">NahapetFX</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Terms of Use — MyPasSwordX Generator</h1>
+        
+        <p><strong>Last updated:</strong> <span id="current-date"></span></p>
+
+        <h2>License</h2>
+        <p>
+          You are granted a personal, non-transferable, non-exclusive license to use the App on devices you own.
+        </p>
+
+        <h2>Optional Upgrade</h2>
+        <p>The App includes an optional upgrade using a license key.</p>
+        <p>This upgrade enables additional configuration options.</p>
+        <p>The standard version remains fully functional without activation.</p>
+
+        <h2>Restrictions</h2>
+        <p>Users agree not to:</p>
+        <ul>
+          <li>Reverse engineer or modify the App</li>
+          <li>Share activation keys with others</li>
+          <li>Use the App for illegal purposes</li>
+        </ul>
+
+        <h2>License Validation</h2>
+        <p>
+          To prevent unauthorized use, the App may verify activation keys online.
+        </p>
+        <p>
+          Only the license key and optional recovery email are processed during this validation.
+        </p>
+
+        <h2>Warranty Disclaimer</h2>
+        <p>
+          The App is provided "as-is" without warranty of any kind.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>We are not responsible for:</p>
+        <ul>
+          <li>Lost passwords</li>
+          <li>Device misuse</li>
+          <li>Improper handling of sensitive information</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>📧 <a href="mailto:support@nahapetfx.com">support@nahapetfx.com</a></p>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      // Update the copyright year automatically
+      document.getElementById('year').textContent = new Date().getFullYear();
+      
+      // Set current date
+      const dateElement = document.getElementById('current-date');
+      if (dateElement) {
+        const today = new Date();
+        const day = String(today.getDate()).padStart(2, '0');
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = today.getFullYear();
+        dateElement.textContent = `${day}.${month}.${year}`;
+      }
+    </script>
+  </body>
+</html>

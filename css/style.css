@@ -1,0 +1,478 @@
+/*
+ * Global stylesheet for the NahapetFX documentation website.
+ *
+ * Glassmorphism design system featuring:
+ * - Semi-transparent backgrounds with backdrop blur
+ * - Subtle borders and light shadows
+ * - Gradient backgrounds for depth
+ * - Modern, elegant aesthetic
+ */
+
+/* CSS custom properties for glassmorphism design */
+:root {
+  /* Gradient background colors */
+  --bg-gradient-start: #667eea;
+  --bg-gradient-end: #764ba2;
+  --bg-gradient-alt-start: #f093fb;
+  --bg-gradient-alt-end: #f5576c;
+  
+  /* Glass effect colors */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-bg-hover: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-hover: rgba(255, 255, 255, 0.3);
+  
+  /* Shadow colors */
+  --shadow-light: rgba(255, 255, 255, 0.1);
+  --shadow-dark: rgba(0, 0, 0, 0.2);
+  
+  /* Text colors */
+  --text-color: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.8);
+  --text-link: #ffffff;
+  
+  /* Primary accent color */
+  --primary-color: #ffffff;
+  --primary-hover: rgba(255, 255, 255, 0.9);
+  
+  /* Border radius */
+  --radius: 20px;
+  --radius-small: 12px;
+  
+  /* Spacing */
+  --spacer: 16px;
+  
+  /* Blur amount */
+  --blur: 10px;
+  
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+/* Animated gradient background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 50%, var(--bg-gradient-alt-start) 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  color: var(--text-color);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Animated gradient background effect */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Decorative background elements */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: float 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Ensure content is above background */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reset for lists */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation with glassmorphism */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--spacer) * 1.5) calc(var(--spacer) * 2);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--shadow-dark);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav .logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: calc(var(--spacer) * 0.5) calc(var(--spacer) * 1.5);
+  border-radius: var(--radius-small);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition: all 0.3s ease;
+}
+
+nav .logo:hover,
+nav .logo:focus {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 6px 20px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+nav ul {
+  display: flex;
+  gap: calc(var(--spacer) * 1);
+  align-items: center;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  padding: calc(var(--spacer) * 0.5) calc(var(--spacer) * 1.25);
+  border-radius: var(--radius-small);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+}
+
+nav a:hover,
+nav a:focus {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: calc(var(--spacer) * 2) 0;
+}
+
+/* Hero section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacer) * 3);
+  padding-top: calc(var(--spacer) * 4);
+  padding-bottom: calc(var(--spacer) * 4);
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: var(--spacer);
+  text-shadow: 0 2px 10px var(--shadow-dark);
+  font-weight: 700;
+}
+
+.hero-text p {
+  margin-bottom: calc(var(--spacer) * 2);
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.hero-img img {
+  filter: drop-shadow(0 10px 30px var(--shadow-dark));
+  transition: transform 0.3s ease;
+}
+
+.hero-img img:hover {
+  transform: scale(1.05) rotate(5deg);
+}
+
+/* Glassmorphism cards */
+.card {
+  padding: calc(var(--spacer) * 2);
+  border-radius: var(--radius);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  flex: 1 1 280px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 12px 40px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  transform: translateY(-5px);
+}
+
+.card h2,
+.card h3 {
+  margin-top: 0;
+  color: var(--text-color);
+}
+
+.card p {
+  color: var(--text-muted);
+}
+
+/* Cards container */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--spacer) * 2);
+  justify-content: space-between;
+}
+
+/* Glassmorphism buttons */
+.button {
+  display: inline-block;
+  padding: calc(var(--spacer) * 0.875) calc(var(--spacer) * 2.5);
+  border-radius: var(--radius-small);
+  font-weight: 600;
+  color: var(--text-color);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  text-decoration: none;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button:hover,
+.button:focus {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 6px 24px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Footer with glassmorphism */
+.footer {
+  text-align: center;
+  padding: calc(var(--spacer) * 2.5);
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-top: 1px solid var(--glass-border);
+  margin-top: calc(var(--spacer) * 4);
+}
+
+.footer a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: calc(var(--spacer) * 0.25) calc(var(--spacer) * 0.5);
+  border-radius: var(--radius-small);
+}
+
+.footer a:hover {
+  color: var(--text-color);
+  background: var(--glass-bg-hover);
+}
+
+/* Form styling with glassmorphism */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacer) * 1.5);
+  width: 100%;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: calc(var(--spacer) * 0.25);
+  display: block;
+  color: var(--text-color);
+}
+
+input,
+textarea {
+  padding: calc(var(--spacer) * 0.875);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-small);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  font-size: 1rem;
+  color: var(--text-color);
+  resize: vertical;
+  box-shadow: 0 2px 8px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  transition: all 0.3s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-muted);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: 0 4px 16px var(--shadow-dark),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+  transform: translateY(-2px);
+}
+
+/* Main content headings */
+main h1 {
+  color: var(--text-color);
+  text-shadow: 0 2px 10px var(--shadow-dark);
+  font-size: 2.5rem;
+  margin-bottom: calc(var(--spacer) * 1.5);
+}
+
+main h2 {
+  color: var(--text-color);
+  margin-top: calc(var(--spacer) * 2);
+  margin-bottom: calc(var(--spacer) * 1);
+}
+
+main p {
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+main a {
+  color: var(--text-link);
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+main a:hover {
+  color: var(--text-color);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+main ul {
+  list-style: disc;
+  padding-left: calc(var(--spacer) * 2);
+  color: var(--text-muted);
+}
+
+main ul li {
+  margin-bottom: calc(var(--spacer) * 0.5);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacer);
+  }
+  
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+    gap: calc(var(--spacer) * 0.5);
+  }
+  
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .cards {
+    flex-direction: column;
+  }
+  
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .hero-img {
+    order: -1;
+  }
+  
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+  
+  main h1 {
+    font-size: 2rem;
+  }
+  
+  :root {
+    --blur: 8px;
+  }
+}
+
+/* Additional glassmorphism enhancements */
+.card img {
+  border-radius: var(--radius-small);
+  box-shadow: 0 4px 16px var(--shadow-dark);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

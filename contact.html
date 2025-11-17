@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--
+      Contact page for visitors to get in touch with the NahapetFX team.
+      Includes a simple contact form and company details.
+    -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — NahapetFX</title>
+    <meta
+      name="description"
+      content="Get in touch with the NahapetFX team for questions, support or feedback about MyPasSwordX."
+    />
+    <link rel="icon" href="images/icon.png" />
+    <meta property="og:image" content="images/icon.png" />
+    <meta property="og:title" content="Contact — NahapetFX" />
+    <meta
+      property="og:description"
+      content="Get in touch with the NahapetFX team for questions, support or feedback about MyPasSwordX."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- Make the logo a link back to the home page -->
+        <a href="index.html" class="logo">NahapetFX</a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="apps.html">Apps</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>
+          We'd love to hear from you! Whether you have a question about
+          features, pricing or anything else, our team is ready to
+          answer all your questions.
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>Get in Touch</h3>
+            <form
+              id="contact-form"
+              action="mailto:Arshakyan.Nahapet@gmail.com"
+              method="post"
+              enctype="text/plain"
+            >
+              <div>
+                <label for="firstName">First Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="First Name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div>
+                <label for="lastName">Last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="Last Name"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  aria-required="true"
+                />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                  aria-required="true"
+                ></textarea>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="button"
+                  style="width: max-content;"
+                  aria-label="Send message"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="card">
+            <h3>Contact Details</h3>
+            <p>
+              Email:
+              <a href="mailto:Support@NahapetFX.com">Support@NahapetFX.com</a>
+            </p>
+            <p>Location: UAE, Dubai</p>
+            <p>Business Hours: Monday – Friday, 9:00&nbsp;AM – 5:00&nbsp;PM (PST)</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Use</a> |
+        <a href="support.html">Support</a>
+      </p>
+      <p>&copy; <span id="year"></span> NahapetFX. All rights reserved.</p>
+    </footer>
+    <script>
+      // Keep the copyright year current
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // The contact form uses a mailto action to send messages directly to
+      // Arshakyan.Nahapet@gmail.com. When the visitor submits the form,
+      // their default mail client will open with a new message pre‑filled
+      // with the form contents. No custom JavaScript submission handler is
+      // needed here.
+    </script>
+  </body>
+</html>
