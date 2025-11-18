@@ -39,6 +39,7 @@
         <h1>Privacy Policy — MyPasSwordX Generator</h1>
         
         <p><strong>Last updated:</strong> <span id="current-date"></span></p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Revision date: <span id="revision-date"></span></p>
 
         <h2>Overview</h2>
         <p>
@@ -75,10 +76,19 @@
         <p>
           No additional personal data is transmitted during this validation.
         </p>
+        <p>
+          The key is used only for verification and authorization purposes and does not change the basic functionality of the application. Using the app without entering a key provides full functionality as described in the App Store Metadata.
+        </p>
 
         <h2>Special Access Credentials</h2>
         <p>
           Special Access credentials are manually issued; no in-app purchase; feature works offline; general users continue full functionality.
+        </p>
+        <p>
+          No in-app purchase is required to use the app's core functions. The optional access credentials are provisioned externally and do not represent a purchase of additional features within the app.
+        </p>
+        <p>
+          Optional credentials only impact the authorized workflow module and are not required for general use.
         </p>
 
         <h2>Recovery Email (Optional)</h2>
@@ -91,7 +101,10 @@
           <li>License ownership confirmation</li>
         </ul>
         <p>
-          We do not share or sell recovery emails and do not use them for marketing or analytics.
+          The email is not used for marketing, analytics or tracking.
+        </p>
+        <p>
+          Entering an email is fully optional and does not affect basic functionality of the app.
         </p>
 
         <h2>No Third-Party Services</h2>
@@ -137,10 +150,22 @@
       const dateElement = document.getElementById('current-date');
       if (dateElement) {
         const today = new Date();
-        const day = String(today.getDate()).padStart(2, '0');
-        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const month = months[today.getMonth()];
+        const day = today.getDate();
         const year = today.getFullYear();
-        dateElement.textContent = `${day}.${month}.${year}`;
+        dateElement.textContent = `${month} ${day}, ${year}`;
+      }
+      
+      // Set revision date
+      const revisionElement = document.getElementById('revision-date');
+      if (revisionElement) {
+        const today = new Date();
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const month = months[today.getMonth()];
+        const day = today.getDate();
+        const year = today.getFullYear();
+        revisionElement.textContent = `${month} ${day}, ${year}`;
       }
     </script>
   </body>
