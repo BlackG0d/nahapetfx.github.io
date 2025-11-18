@@ -3,7 +3,7 @@
   <head>
     <!--
       Contact page for visitors to get in touch with the NahapetFX team.
-      Includes a simple contact form and company details.
+      Includes company contact details.
     -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -44,66 +44,6 @@
         </p>
         <div class="cards">
           <div class="card">
-            <h3>Get in Touch</h3>
-            <form
-              id="contact-form"
-              action="mailto:Arshakyan.Nahapet@gmail.com"
-              method="post"
-              enctype="text/plain"
-            >
-              <div>
-                <label for="firstName">First Name</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="First Name"
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="Last Name"
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  aria-required="true"
-                />
-              </div>
-              <div>
-                <label for="message">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  aria-required="true"
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  class="button"
-                  style="width: max-content;"
-                  aria-label="Send message"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="card">
             <h3>Contact Details</h3>
             <p>
               Email:
@@ -126,11 +66,6 @@
     <script>
       // Keep the copyright year current
       document.getElementById('year').textContent = new Date().getFullYear();
-      // The contact form uses a mailto action to send messages directly to
-      // Arshakyan.Nahapet@gmail.com. When the visitor submits the form,
-      // their default mail client will open with a new message pre‑filled
-      // with the form contents. No custom JavaScript submission handler is
-      // needed here.
     </script>
   </body>
 </html>
