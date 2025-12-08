@@ -261,13 +261,22 @@ if (!isTouchDevice) {
 
 // Анимация занавесов при загрузке
 window.addEventListener('load', () => {
-    const curtains = document.querySelectorAll('.curtain');
-    curtains.forEach((curtain, index) => {
+    const leftCurtain = document.querySelector('.curtain.left');
+    const rightCurtain = document.querySelector('.curtain.right');
+    
+    if (leftCurtain) {
         setTimeout(() => {
-            curtain.style.transition = 'transform 2s ease-out';
-            curtain.style.transform = index === 0 ? 'translateX(-100%)' : 'translateX(100%)';
+            leftCurtain.style.transition = 'transform 2s ease-out';
+            leftCurtain.style.transform = 'translateX(-100%)';
         }, 500);
-    });
+    }
+    
+    if (rightCurtain) {
+        setTimeout(() => {
+            rightCurtain.style.transition = 'transform 2s ease-out';
+            rightCurtain.style.transform = 'translateX(100%)';
+        }, 500);
+    }
 });
 
 // Эффект печатания для заголовка (опционально)
