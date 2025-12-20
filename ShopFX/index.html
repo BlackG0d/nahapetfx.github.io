@@ -282,15 +282,26 @@
 
         <div class="modal__content">
           <div class="modal__box modal__box--primary">
-            <div class="modal__boxTitle">Pay with PayPal, Credit Card, or Apple Pay</div>
+            <div class="modal__boxTitle">Secure Checkout</div>
             <div class="payLayout">
               <div class="payLayout__left">
                 <p class="modal__boxText">
                   Click the button below to proceed to secure checkout.
                 </p>
                 <div class="paypalHostedWrap">
-                  <div class="paypalLoading" id="paypal-loading" aria-live="polite">Loading PayPal…</div>
-                  <div id="paypal-container-NE3PMSABAYPQL"></div>
+                  <!-- Ziina Checkout Button (temporary) -->
+                  <a href="https://pay.ziina.com/nahapet/zC11unsaA" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" style="width: 100%; text-align: center; display: block; margin-bottom: 12px;">
+                    Checkout
+                  </a>
+                  <p style="text-align: center; font-size: 12px; color: var(--muted); margin: 0;">
+                    Powered by <strong>Ziina</strong>
+                  </p>
+                  
+                  <!-- PayPal Button (temporarily hidden) -->
+                  <div style="display: none;">
+                    <div class="paypalLoading" id="paypal-loading" aria-live="polite">Loading PayPal…</div>
+                    <div id="paypal-container-NE3PMSABAYPQL"></div>
+                  </div>
                 </div>
               </div>
 

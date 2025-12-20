@@ -75,7 +75,8 @@ function openModal() {
   const closeBtn = qs("[data-close-modal]", modal);
   if (closeBtn) closeBtn.focus();
 
-  renderPayPalButton();
+  // PayPal button rendering (temporarily disabled - using Ziina instead)
+  // renderPayPalButton();
 }
 
 function closeModal() {
