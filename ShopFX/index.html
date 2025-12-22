@@ -59,6 +59,7 @@
         </nav>
 
         <div class="topbar__cta">
+          <a class="btn btn--ghost" data-tutorial href="#">Tutorial</a>
           <a class="btn btn--ghost" href="#pricing">License $129</a>
           <a class="btn btn--primary" data-appstore href="#">App Store (Free)</a>
         </div>
@@ -86,7 +87,7 @@
                 <li>Full support for <strong>iOS 17–26</strong> with advanced Full Liquid Glass UI</li>
                 <li>Any language, fully customizable — match your show, audience, and style</li>
                 <li>Perform without touching the phone — spectator can hold the device from start to finish</li>
-                <li>Ethical by design — the spectator never enters their real passcode; no real personal data is used</li>
+                <li>The spectator never enters their real passcode on the magician's phone.</li>
                 <li>A method that cannot be discovered — engineered to eliminate exposure</li>
                 <li>Integrated with Inject and other professional tools</li>
                 <li>Multiple modes for every performance style</li>
@@ -326,6 +327,44 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="modal" id="tutorialModal" aria-hidden="true" role="dialog" aria-label="Tutorial Access">
+      <div class="modal__backdrop" data-close-tutorial-modal></div>
+      <div class="modal__panel glassCard" role="document">
+        <div class="modal__top">
+          <div>
+            <div class="modal__title">Tutorial Access</div>
+            <div class="modal__subtitle">Answer the question to continue</div>
+          </div>
+          <button class="iconBtn" type="button" aria-label="Close" data-close-tutorial-modal>
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+
+        <div class="modal__content">
+          <div class="modal__box modal__box--primary">
+            <div class="modal__boxTitle">What is The Professor's surname?</div>
+            <div style="margin-top: 1.5rem;">
+              <input 
+                type="text" 
+                id="tutorialAnswer" 
+                placeholder="Enter your answer..." 
+                style="width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 12px; color: var(--text); font-size: 16px; font-family: inherit;"
+                autocomplete="off"
+              />
+              <div id="tutorialError" style="margin-top: 12px; color: #ff4d00; font-size: 14px; display: none;"></div>
+              <button 
+                class="btn btn--primary" 
+                id="tutorialSubmit" 
+                style="width: 100%; margin-top: 16px;"
+              >
+                Submit Answer
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

@@ -134,10 +134,107 @@ function setContactEmail() {
   });
 }
 
+function openTutorialModal() {
+  const modal = qs("#tutorialModal");
+  if (!modal) return;
+
+  modal.setAttribute("aria-hidden", "false");
+  document.documentElement.style.overflow = "hidden";
+
+  // Focus on input
+  const input = qs("#tutorialAnswer");
+  if (input) {
+    setTimeout(() => input.focus(), 100);
+  }
+
+  // Clear previous state
+  const errorDiv = qs("#tutorialError");
+  if (errorDiv) {
+    errorDiv.style.display = "none";
+    errorDiv.textContent = "";
+  }
+  if (input) input.value = "";
+}
+
+function closeTutorialModal() {
+  const modal = qs("#tutorialModal");
+  if (!modal) return;
+
+  modal.setAttribute("aria-hidden", "true");
+  document.documentElement.style.overflow = "";
+}
+
+function wireTutorialButton() {
+  qsa("[data-tutorial]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      openTutorialModal();
+    });
+  });
+}
+
+function wireTutorialModalClose() {
+  const modal = qs("#tutorialModal");
+  if (!modal) return;
+
+  qsa("[data-close-tutorial-modal]", modal).forEach((el) => {
+    el.addEventListener("click", () => closeTutorialModal());
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.getAttribute("aria-hidden") === "false") {
+      closeTutorialModal();
+    }
+  });
+}
+
+function wireTutorialSubmit() {
+  const submitBtn = qs("#tutorialSubmit");
+  const answerInput = qs("#tutorialAnswer");
+  const errorDiv = qs("#tutorialError");
+  const correctAnswer = "Vernon";
+  const tutorialUrl = "https://nahapetfx.com/tutorial/mypasswordx.html";
+
+  if (!submitBtn || !answerInput || !errorDiv) return;
+
+  const checkAnswer = () => {
+    const userAnswer = answerInput.value.trim();
+    
+    if (!userAnswer) {
+      errorDiv.textContent = "Please enter an answer.";
+      errorDiv.style.display = "block";
+      return;
+    }
+
+    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+      // Correct answer - redirect to tutorial
+      window.location.href = tutorialUrl;
+    } else {
+      // Wrong answer - show error
+      errorDiv.textContent = "Incorrect answer. Please try again.";
+      errorDiv.style.display = "block";
+      answerInput.value = "";
+      answerInput.focus();
+    }
+  };
+
+  submitBtn.addEventListener("click", checkAnswer);
+  
+  answerInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      checkAnswer();
+    }
+  });
+}
+
 setYear();
 wireAppStoreLinks();
 wireBuyButtons();
 wireModalClose();
+wireTutorialButton();
+wireTutorialModalClose();
+wireTutorialSubmit();
 smoothAnchors();
 setContactEmail();
 
