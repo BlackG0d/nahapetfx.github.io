@@ -61,6 +61,127 @@ function renderPayPalButton() {
   tryRender();
 }
 
+// Promo code functionality
+const PROMO_CODES = {
+  // Add your promo codes here: "CODE": { discount: percentage, url: "special_url" (optional), message: "custom_message" (optional) }
+  "WELCOME10": { discount: 10 },
+  "SAVE20": { discount: 20 },
+  "MAGIC15": { discount: 15 },
+  "DEMIAN15": { 
+    discount: 15, 
+    url: "https://pay.ziina.com/nahapet/CJ2XaTUKE",
+    message: "Congratulations! Your promo code was successfully applied. You received a 15% discount."
+  },
+  "NEW26": { 
+    discount: 26,
+    url: "https://pay.ziina.com/nahapetfx/EEYXg5MHO4"
+  },
+};
+
+let appliedPromo = null;
+let originalPrice = 129;
+
+function resetPromoCode() {
+  appliedPromo = null;
+  const promoInput = qs("#promoCode");
+  const applyBtn = qs("#applyPromo");
+  const promoMessage = qs("#promoMessage");
+  const modalTitle = qs(".modal__title");
+  const checkoutLink = qs(".paypalHostedWrap a[href*='ziina']");
+
+  if (promoInput) {
+    promoInput.value = "";
+    promoInput.disabled = false;
+  }
+  if (applyBtn) {
+    applyBtn.disabled = false;
+    applyBtn.textContent = "Apply";
+  }
+  if (promoMessage) {
+    promoMessage.textContent = "";
+  }
+  if (modalTitle) {
+    modalTitle.textContent = `License Key • $${originalPrice}`;
+  }
+  if (checkoutLink) {
+    // Reset to original URL
+    checkoutLink.setAttribute("href", "https://pay.ziina.com/nahapet/zC11unsaA");
+  }
+}
+
+function applyPromoCode() {
+  const promoInput = qs("#promoCode");
+  const applyBtn = qs("#applyPromo");
+  const promoMessage = qs("#promoMessage");
+  const modalTitle = qs(".modal__title");
+  const checkoutLink = qs(".paypalHostedWrap a[href*='ziina']");
+
+  if (!promoInput || !applyBtn || !promoMessage) return;
+
+  const checkPromo = () => {
+    const code = promoInput.value.trim().toUpperCase();
+    
+    if (!code) {
+      promoMessage.textContent = "";
+      promoMessage.style.color = "";
+      return;
+    }
+
+    if (PROMO_CODES[code]) {
+      appliedPromo = code;
+      const promoData = PROMO_CODES[code];
+      const discount = typeof promoData === 'number' ? promoData : promoData.discount;
+      const discountedPrice = originalPrice * (1 - discount / 100);
+      
+      // Update price display
+      if (modalTitle) {
+        modalTitle.textContent = `License Key • $${Math.round(discountedPrice)}`;
+      }
+      
+      // Show success message
+      if (typeof promoData === 'object' && promoData.message) {
+        promoMessage.textContent = promoData.message;
+      } else {
+        promoMessage.textContent = `✓ Promo code applied! ${discount}% discount`;
+      }
+      promoMessage.style.color = "#4ade80";
+      
+      // Disable input and button
+      promoInput.disabled = true;
+      applyBtn.disabled = true;
+      applyBtn.textContent = "Applied";
+      
+      // Update checkout link
+      if (checkoutLink) {
+        if (typeof promoData === 'object' && promoData.url) {
+          // Use special URL for this promo code
+          checkoutLink.setAttribute("href", promoData.url);
+        } else {
+          // Add promo code as parameter to existing URL
+          const baseUrl = checkoutLink.getAttribute("href");
+          const separator = baseUrl.includes("?") ? "&" : "?";
+          checkoutLink.setAttribute("href", `${baseUrl}${separator}promo=${code}`);
+        }
+      }
+    } else {
+      // Invalid code
+      promoMessage.textContent = "Invalid promo code. Please try again.";
+      promoMessage.style.color = "#ff4d00";
+      promoInput.value = "";
+      promoInput.focus();
+    }
+  };
+
+  applyBtn.addEventListener("click", checkPromo);
+  
+  promoInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !promoInput.disabled) {
+      e.preventDefault();
+      checkPromo();
+    }
+  });
+}
+
 function openModal() {
   const modal = qs("#buyModal");
   if (!modal) return;
@@ -74,6 +195,9 @@ function openModal() {
   // Focus management
   const closeBtn = qs("[data-close-modal]", modal);
   if (closeBtn) closeBtn.focus();
+
+  // Reset promo code when modal opens
+  resetPromoCode();
 
   // PayPal button rendering (temporarily disabled - using Ziina instead)
   // renderPayPalButton();
@@ -235,6 +359,7 @@ wireModalClose();
 wireTutorialButton();
 wireTutorialModalClose();
 wireTutorialSubmit();
+applyPromoCode();
 smoothAnchors();
 setContactEmail();
 
