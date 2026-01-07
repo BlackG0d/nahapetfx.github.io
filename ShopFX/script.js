@@ -69,7 +69,7 @@ const PROMO_CODES = {
   "MAGIC15": { discount: 15 },
   "DEMIAN15": { 
     discount: 15, 
-    url: "https://pay.ziina.com/nahapet/CJ2XaTUKE",
+    url: "https://pay.ziina.com/nahapetfx/PYnPdF5Qp",
     message: "Congratulations! Your promo code was successfully applied. You received a 15% discount."
   },
   "NEW26": { 
@@ -105,7 +105,7 @@ function resetPromoCode() {
   }
   if (checkoutLink) {
     // Reset to original URL
-    checkoutLink.setAttribute("href", "https://pay.ziina.com/nahapet/zC11unsaA");
+    checkoutLink.setAttribute("href", "https://pay.ziina.com/nahapetfx/M0keAKG8l");
   }
 }
 
