@@ -193,10 +193,103 @@
       color: var(--text);
     }
 
+    .topbar__right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .topbar__cta {
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    /* Language Selector */
+    .lang-selector {
+      position: relative;
+    }
+
+    .lang-selector__button {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      user-select: none;
+    }
+
+    .lang-selector__button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255, 255, 255, 0.26);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-selector__current {
+      min-width: 28px;
+      text-align: center;
+    }
+
+    .lang-selector__icon {
+      color: var(--muted);
+      transition: transform 160ms ease;
+    }
+
+    .lang-selector__button[aria-expanded="true"] .lang-selector__icon {
+      transform: rotate(180deg);
+    }
+
+    .lang-selector__dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 140px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, rgba(2, 2, 8, 0.85), rgba(2, 2, 8, 0.75));
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+      box-shadow: 0 12px 44px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+      padding: 6px;
+      display: none;
+      z-index: 100;
+    }
+
+    .lang-selector__dropdown[aria-hidden="false"] {
+      display: block;
+    }
+
+    .lang-selector__option {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
+      font-size: 14px;
+      text-align: left;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease;
+    }
+
+    .lang-selector__option:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 1);
+    }
+
+    .lang-selector__option[data-active="true"] {
+      background: rgba(255, 176, 0, 0.22);
+      color: rgba(255, 255, 255, 1);
+      font-weight: 600;
     }
 
     /* Buttons */
@@ -791,14 +884,25 @@
       </a>
 
       <nav class="nav" aria-label="Navigation">
-        <a class="nav__link" href="#apps">Apps</a>
-        <a class="nav__link" href="#features">Features</a>
-        <a class="nav__link" href="#support">Support</a>
+        <a class="nav__link" href="#apps" data-i18n="nav_apps">Apps</a>
+        <a class="nav__link" href="#features" data-i18n="nav_features">Features</a>
+        <a class="nav__link" href="#support" data-i18n="nav_support">Support</a>
       </nav>
 
-      <div class="topbar__cta">
-        <a class="btn btn--ghost" href="#premium">Professional Access</a>
-        <a class="btn btn--primary" href="https://apps.apple.com/us/app/mypasswordx/id6751013547" target="_blank" rel="noopener">App Store</a>
+      <div class="topbar__right">
+        <div class="lang-selector">
+          <button class="lang-selector__button" id="langButton" aria-label="Select language">
+            <span class="lang-selector__current" id="langCurrent">EN</span>
+            <svg class="lang-selector__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="lang-selector__dropdown" id="langDropdown" aria-hidden="true">
+            <button class="lang-selector__option" data-lang="en">English</button>
+            <button class="lang-selector__option" data-lang="ru">Русский</button>
+            <button class="lang-selector__option" data-lang="hy">Հայերեն</button>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -822,47 +926,47 @@
           </div>
 
           <div class="hero__visualActions">
-            <a class="btn btn--primary btn--lg" href="https://apps.apple.com/us/app/mypasswordx/id6751013547" target="_blank" rel="noopener" aria-label="Download on App Store">
+            <a class="btn btn--primary btn--lg" href="https://apps.apple.com/us/app/mypasswordx/id6751013547" target="_blank" rel="noopener" aria-label="Download on App Store" data-i18n="hero_download_appstore">
               Download on the App Store
             </a>
-            <a class="btn btn--glass btn--lg" href="#features" aria-label="Learn more">
+            <a class="btn btn--glass btn--lg" href="#features" aria-label="Learn more" data-i18n="hero_learn_more">
               Learn more
             </a>
           </div>
         </div>
 
         <div class="hero__copy">
-          <h2 class="hero__title">
+          <h2 class="hero__title" data-i18n="hero_title">
             Not every secret belongs behind a lock.
           </h2>
 
-          <p class="hero__subtitle">
+          <p class="hero__subtitle" data-i18n="hero_subtitle">
             MyPasSwordX helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.
           </p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="https://apps.apple.com/us/app/mypasswordx/id6751013547" target="_blank" rel="noopener">
+            <a class="btn btn--primary" href="https://apps.apple.com/us/app/mypasswordx/id6751013547" target="_blank" rel="noopener" data-i18n="hero_download_appstore">
               Download on the App Store
             </a>
-            <a class="btn btn--ghost" href="#features">
+            <a class="btn btn--ghost" href="#features" data-i18n="hero_learn_more">
               Learn more
             </a>
           </div>
 
           <div class="hero__detailsBox" aria-label="Product description">
             <div class="hero__detailsHead">
-              <div class="hero__detailsTitle">Key Features</div>
-              <div class="hero__detailsSubtitle">Built for secure, offline password generation.</div>
+              <div class="hero__detailsTitle" data-i18n="hero_key_features">Key Features</div>
+              <div class="hero__detailsSubtitle" data-i18n="hero_built_for">Built for secure, offline password generation.</div>
             </div>
 
             <ul class="hero__detailsList">
-              <li>All password generation happens locally on your device</li>
-              <li>No data sent to servers for standard use</li>
-              <li>Generate strong passwords in seconds</li>
-              <li>Adjust password length, include special characters, numbers, and more</li>
-              <li>No accounts, no tracking, no cloud storage</li>
-              <li>Uses cryptographically secure random number generation</li>
-              <li>Works entirely <strong>offline</strong> – reliable anywhere</li>
+              <li data-i18n="feature_1">All password generation happens locally on your device</li>
+              <li data-i18n="feature_2">No data sent to servers for standard use</li>
+              <li data-i18n="feature_3">Generate strong passwords in seconds</li>
+              <li data-i18n="feature_4">Adjust password length, include special characters, numbers, and more</li>
+              <li data-i18n="feature_5">No accounts, no tracking, no cloud storage</li>
+              <li data-i18n="feature_6">Uses cryptographically secure random number generation</li>
+              <li data-i18n="feature_7">Works entirely <strong>offline</strong> – reliable anywhere</li>
             </ul>
           </div>
         </div>
@@ -873,17 +977,17 @@
     <section id="apps" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title">Our Apps</h2>
-          <p class="section__subtitle">Discover applications created by NahapetFX</p>
+          <h2 class="section__title" data-i18n="apps_title">Our Apps</h2>
+          <p class="section__subtitle" data-i18n="apps_subtitle">Discover applications created by NahapetFX</p>
         </div>
         <div class="apps-grid">
           <article class="app-card glassCard">
             <img src="images/icon.png" alt="MyPasSwordX" class="app-icon" />
             <h3 class="app-title">MyPasSwordX</h3>
-            <p class="app-description">
+            <p class="app-description" data-i18n="app_description">
               A smart password generator that helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.
             </p>
-            <a href="apps.html" class="btn btn--primary">View Details</a>
+            <a href="apps.html" class="btn btn--primary" data-i18n="app_view_details">View Details</a>
           </article>
         </div>
       </div>
@@ -893,49 +997,49 @@
     <section id="features" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title">Features</h2>
-          <p class="section__subtitle">Everything you need for secure password management</p>
+          <h2 class="section__title" data-i18n="features_title">Features</h2>
+          <p class="section__subtitle" data-i18n="features_subtitle">Everything you need for secure password management</p>
         </div>
         <div class="features-grid">
           <article class="feature-card glassCard">
             <span class="feature-icon">🔒</span>
-            <h3 class="feature-title">Secure & Offline</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_secure_title">Secure & Offline</h3>
+            <p class="feature-description" data-i18n="feat_secure_desc">
               All password generation happens locally on your device. No data sent to servers for standard use. Optional license key may be validated online.
             </p>
           </article>
           <article class="feature-card glassCard">
             <span class="feature-icon">⚡</span>
-            <h3 class="feature-title">Lightning Fast</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_fast_title">Lightning Fast</h3>
+            <p class="feature-description" data-i18n="feat_fast_desc">
               Generate strong passwords in seconds. Copy and use them immediately without any delays or complications.
             </p>
           </article>
           <article class="feature-card glassCard">
             <span class="feature-icon">🎯</span>
-            <h3 class="feature-title">Customizable</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_custom_title">Customizable</h3>
+            <p class="feature-description" data-i18n="feat_custom_desc">
               Adjust password length, include special characters, numbers, and more. Tailor passwords to your specific needs.
             </p>
           </article>
           <article class="feature-card glassCard">
             <span class="feature-icon">👤</span>
-            <h3 class="feature-title">Private</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_private_title">Private</h3>
+            <p class="feature-description" data-i18n="feat_private_desc">
               No accounts, no tracking, no cloud storage. Your passwords stay on your device and never leave it.
             </p>
           </article>
           <article class="feature-card glassCard">
             <span class="feature-icon">✨</span>
-            <h3 class="feature-title">Simple Interface</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_simple_title">Simple Interface</h3>
+            <p class="feature-description" data-i18n="feat_simple_desc">
               Clean, intuitive design that makes password generation effortless. No learning curve required.
             </p>
           </article>
           <article class="feature-card glassCard">
             <span class="feature-icon">🛡️</span>
-            <h3 class="feature-title">Strong Security</h3>
-            <p class="feature-description">
+            <h3 class="feature-title" data-i18n="feat_security_title">Strong Security</h3>
+            <p class="feature-description" data-i18n="feat_security_desc">
               Uses cryptographically secure random number generation to ensure your passwords are truly random and secure.
             </p>
           </article>
@@ -947,21 +1051,21 @@
     <section id="premium" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title">Professional Workflow Access</h2>
+          <h2 class="section__title" data-i18n="premium_title">Professional Workflow Access</h2>
         </div>
         <div class="premium-content glassCard">
-          <p>
+          <p data-i18n="premium_text_1">
             Regular users are fully supported: all password generation and basic history features are available without any credential or payment. Professional access is only for users with specific workflows requiring extended control.
           </p>
-          <p>
+          <p data-i18n="premium_text_2">
             For verified professional workflows, additional settings and enhanced capabilities become available. This access is optional and not required for regular app usage.
           </p>
           <div class="premium-features-list">
             <div class="premium-feature-item">
               <span class="premium-feature-icon">📤</span>
               <div class="premium-feature-text">
-                <div class="premium-feature-title">Export Passwords</div>
-                <div class="premium-feature-description">
+                <div class="premium-feature-title" data-i18n="premium_feat_export_title">Export Passwords</div>
+                <div class="premium-feature-description" data-i18n="premium_feat_export_desc">
                   Standard export is available to all users; the formats and portability enhancements below are part of the professional access package. Export your generated passwords to various formats (CSV, JSON, TXT) for backup and portability.
                 </div>
               </div>
@@ -969,8 +1073,8 @@
             <div class="premium-feature-item">
               <span class="premium-feature-icon">⚙️</span>
               <div class="premium-feature-text">
-                <div class="premium-feature-title">Enhanced Settings</div>
-                <div class="premium-feature-description">
+                <div class="premium-feature-title" data-i18n="premium_feat_settings_title">Enhanced Settings</div>
+                <div class="premium-feature-description" data-i18n="premium_feat_settings_desc">
                   For verified professional workflows, additional settings and enhanced patterns become available.
                 </div>
               </div>
@@ -978,8 +1082,8 @@
             <div class="premium-feature-item">
               <span class="premium-feature-icon">📊</span>
               <div class="premium-feature-text">
-                <div class="premium-feature-title">Extended Password History</div>
-                <div class="premium-feature-description">
+                <div class="premium-feature-title" data-i18n="premium_feat_history_title">Extended Password History</div>
+                <div class="premium-feature-description" data-i18n="premium_feat_history_desc">
                   Extended history and search functionality (beyond standard history available to all users).
                 </div>
               </div>
@@ -987,8 +1091,8 @@
             <div class="premium-feature-item">
               <span class="premium-feature-icon">🚀</span>
               <div class="premium-feature-text">
-                <div class="premium-feature-title">Priority Support</div>
-                <div class="premium-feature-description">
+                <div class="premium-feature-title" data-i18n="premium_feat_support_title">Priority Support</div>
+                <div class="premium-feature-description" data-i18n="premium_feat_support_desc">
                   Priority support for users with workflow-requirements.
                 </div>
               </div>
@@ -996,15 +1100,15 @@
             <div class="premium-feature-item">
               <span class="premium-feature-icon">📱</span>
               <div class="premium-feature-text">
-                <div class="premium-feature-title">Mobile Phone Password Training</div>
-                <div class="premium-feature-description">
+                <div class="premium-feature-title" data-i18n="premium_feat_training_title">Mobile Phone Password Training</div>
+                <div class="premium-feature-description" data-i18n="premium_feat_training_desc">
                   Optional training module (professional access).
                 </div>
               </div>
             </div>
           </div>
           <div class="premium-cta">
-            <a href="get-license.html" class="btn btn--primary btn--lg">
+            <a href="get-license.html" class="btn btn--primary btn--lg" data-i18n="premium_request_btn">
               Request Professional Access
             </a>
           </div>
@@ -1016,29 +1120,29 @@
     <section id="faq" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title">Frequently Asked Questions</h2>
+          <h2 class="section__title" data-i18n="faq_title">Frequently Asked Questions</h2>
         </div>
         <div class="faq-content">
           <div class="faq">
             <details class="faqItem glassCard" open>
-              <summary>Do I need a license key to use the app?</summary>
-              <p>No. The app works fully without activation. The key is only for advanced configuration.</p>
+              <summary data-i18n="faq_1_q">Do I need a license key to use the app?</summary>
+              <p data-i18n="faq_1_a">No. The app works fully without activation. The key is only for advanced configuration.</p>
             </details>
             <details class="faqItem glassCard">
-              <summary>What does the activation key provide access to?</summary>
-              <p>It grants access to professional workflows and enhanced capabilities designed for verified users with specific workflow requirements.</p>
+              <summary data-i18n="faq_2_q">What does the activation key provide access to?</summary>
+              <p data-i18n="faq_2_a">It grants access to professional workflows and enhanced capabilities designed for verified users with specific workflow requirements.</p>
             </details>
             <details class="faqItem glassCard">
-              <summary>Is this subscription?</summary>
-              <p>No ongoing subscription. Access credentials are provided to verified professional users.</p>
+              <summary data-i18n="faq_3_q">Is this subscription?</summary>
+              <p data-i18n="faq_3_a">No ongoing subscription. Access credentials are provided to verified professional users.</p>
             </details>
             <details class="faqItem glassCard">
-              <summary>Does the license connect to a server?</summary>
-              <p>No. The key works offline.</p>
+              <summary data-i18n="faq_4_q">Does the license connect to a server?</summary>
+              <p data-i18n="faq_4_a">No. The key works offline.</p>
             </details>
             <details class="faqItem glassCard">
-              <summary>Do I need professional verification to get a license key?</summary>
-              <p>Yes. License keys are provided only after manual verification and are intended for users with specific workflows. They are not required for general users.</p>
+              <summary data-i18n="faq_5_q">Do I need professional verification to get a license key?</summary>
+              <p data-i18n="faq_5_a">Yes. License keys are provided only after manual verification and are intended for users with specific workflows. They are not required for general users.</p>
             </details>
           </div>
         </div>
@@ -1049,21 +1153,21 @@
     <section id="support" class="section">
       <div class="container">
         <div class="section__head">
-          <h2 class="section__title">Support</h2>
-          <p class="section__subtitle">Need help? We're here for you</p>
+          <h2 class="section__title" data-i18n="support_title">Support</h2>
+          <p class="section__subtitle" data-i18n="support_subtitle">Need help? We're here for you</p>
         </div>
         <div class="support-content glassCard">
-          <p>
+          <p data-i18n="support_text">
             Have questions about MyPasSwordX or need assistance? Get in touch with our support team.
           </p>
           <div class="support-links">
-            <a href="support.html" class="support-link">
+            <a href="support.html" class="support-link" data-i18n="support_contact">
               📧 Contact Support
             </a>
-            <a href="privacy.html" class="support-link">
+            <a href="privacy.html" class="support-link" data-i18n="support_privacy">
               🔐 Privacy Policy
             </a>
-            <a href="terms.html" class="support-link">
+            <a href="terms.html" class="support-link" data-i18n="support_terms">
               📄 Terms of Use
             </a>
           </div>
@@ -1074,15 +1178,24 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <div class="footer__note">© <span id="year"></span> All rights reserved.</div>
+      <div class="footer__note">© <span id="year"></span> <span data-i18n="footer_rights">All rights reserved.</span></div>
       <div class="footer__right">
-        <a href="privacy.html" class="footer__link">Privacy Policy</a>
-        <a href="terms.html" class="footer__link">Terms of Use</a>
+        <a href="privacy.html" class="footer__link" data-i18n="footer_privacy">Privacy Policy</a>
+        <a href="terms.html" class="footer__link" data-i18n="footer_terms">Terms of Use</a>
       </div>
     </div>
   </footer>
 
   <script>
+    // Helper functions
+    function qs(sel, root = document) {
+      return root.querySelector(sel);
+    }
+
+    function qsa(sel, root = document) {
+      return Array.from(root.querySelectorAll(sel));
+    }
+
     // Set year
     const yearEl = document.getElementById('year');
     if (yearEl) {
@@ -1105,6 +1218,319 @@
         }
       });
     });
+
+    // Language translations
+    const translations = {
+      en: {
+        nav_apps: "Apps",
+        nav_features: "Features",
+        nav_support: "Support",
+        nav_professional: "Professional Access",
+        nav_appstore: "App Store",
+        hero_title: "Not every secret belongs behind a lock.",
+        hero_subtitle: "MyPasSwordX helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.",
+        hero_download_appstore: "Download on the App Store",
+        hero_learn_more: "Learn more",
+        hero_key_features: "Key Features",
+        hero_built_for: "Built for secure, offline password generation.",
+        feature_1: "All password generation happens locally on your device",
+        feature_2: "No data sent to servers for standard use",
+        feature_3: "Generate strong passwords in seconds",
+        feature_4: "Adjust password length, include special characters, numbers, and more",
+        feature_5: "No accounts, no tracking, no cloud storage",
+        feature_6: "Uses cryptographically secure random number generation",
+        feature_7: "Works entirely <strong>offline</strong> – reliable anywhere",
+        apps_title: "Our Apps",
+        apps_subtitle: "Discover applications created by NahapetFX",
+        app_description: "A smart password generator that helps you create strong, unique passwords for everyday use – fast, simple, and completely offline.",
+        app_view_details: "View Details",
+        features_title: "Features",
+        features_subtitle: "Everything you need for secure password management",
+        feat_secure_title: "Secure & Offline",
+        feat_secure_desc: "All password generation happens locally on your device. No data sent to servers for standard use. Optional license key may be validated online.",
+        feat_fast_title: "Lightning Fast",
+        feat_fast_desc: "Generate strong passwords in seconds. Copy and use them immediately without any delays or complications.",
+        feat_custom_title: "Customizable",
+        feat_custom_desc: "Adjust password length, include special characters, numbers, and more. Tailor passwords to your specific needs.",
+        feat_private_title: "Private",
+        feat_private_desc: "No accounts, no tracking, no cloud storage. Your passwords stay on your device and never leave it.",
+        feat_simple_title: "Simple Interface",
+        feat_simple_desc: "Clean, intuitive design that makes password generation effortless. No learning curve required.",
+        feat_security_title: "Strong Security",
+        feat_security_desc: "Uses cryptographically secure random number generation to ensure your passwords are truly random and secure.",
+        premium_title: "Professional Workflow Access",
+        premium_text_1: "Regular users are fully supported: all password generation and basic history features are available without any credential or payment. Professional access is only for users with specific workflows requiring extended control.",
+        premium_text_2: "For verified professional workflows, additional settings and enhanced capabilities become available. This access is optional and not required for regular app usage.",
+        premium_feat_export_title: "Export Passwords",
+        premium_feat_export_desc: "Standard export is available to all users; the formats and portability enhancements below are part of the professional access package. Export your generated passwords to various formats (CSV, JSON, TXT) for backup and portability.",
+        premium_feat_settings_title: "Enhanced Settings",
+        premium_feat_settings_desc: "For verified professional workflows, additional settings and enhanced patterns become available.",
+        premium_feat_history_title: "Extended Password History",
+        premium_feat_history_desc: "Extended history and search functionality (beyond standard history available to all users).",
+        premium_feat_support_title: "Priority Support",
+        premium_feat_support_desc: "Priority support for users with workflow-requirements.",
+        premium_feat_training_title: "Mobile Phone Password Training",
+        premium_feat_training_desc: "Optional training module (professional access).",
+        premium_request_btn: "Request Professional Access",
+        faq_title: "Frequently Asked Questions",
+        faq_1_q: "Do I need a license key to use the app?",
+        faq_1_a: "No. The app works fully without activation. The key is only for advanced configuration.",
+        faq_2_q: "What does the activation key provide access to?",
+        faq_2_a: "It grants access to professional workflows and enhanced capabilities designed for verified users with specific workflow requirements.",
+        faq_3_q: "Is this subscription?",
+        faq_3_a: "No ongoing subscription. Access credentials are provided to verified professional users.",
+        faq_4_q: "Does the license connect to a server?",
+        faq_4_a: "No. The key works offline.",
+        faq_5_q: "Do I need professional verification to get a license key?",
+        faq_5_a: "Yes. License keys are provided only after manual verification and are intended for users with specific workflows. They are not required for general users.",
+        support_title: "Support",
+        support_subtitle: "Need help? We're here for you",
+        support_text: "Have questions about MyPasSwordX or need assistance? Get in touch with our support team.",
+        support_contact: "📧 Contact Support",
+        support_privacy: "🔐 Privacy Policy",
+        support_terms: "📄 Terms of Use",
+        footer_rights: "All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms of Use"
+      },
+      ru: {
+        nav_apps: "Приложения",
+        nav_features: "Возможности",
+        nav_support: "Поддержка",
+        nav_professional: "Профессиональный доступ",
+        nav_appstore: "App Store",
+        hero_title: "Не каждый секрет должен быть за замком.",
+        hero_subtitle: "MyPasSwordX помогает создавать надежные, уникальные пароли для повседневного использования – быстро, просто и полностью офлайн.",
+        hero_download_appstore: "Скачать в App Store",
+        hero_learn_more: "Узнать больше",
+        hero_key_features: "Ключевые возможности",
+        hero_built_for: "Создано для безопасной, офлайн генерации паролей.",
+        feature_1: "Вся генерация паролей происходит локально на вашем устройстве",
+        feature_2: "Данные не отправляются на серверы при стандартном использовании",
+        feature_3: "Генерируйте надежные пароли за секунды",
+        feature_4: "Настройте длину пароля, включите специальные символы, цифры и многое другое",
+        feature_5: "Без аккаунтов, без отслеживания, без облачного хранилища",
+        feature_6: "Использует криптографически безопасную генерацию случайных чисел",
+        feature_7: "Работает полностью <strong>офлайн</strong> – надежно везде",
+        apps_title: "Наши приложения",
+        apps_subtitle: "Откройте для себя приложения, созданные NahapetFX",
+        app_description: "Умный генератор паролей, который помогает создавать надежные, уникальные пароли для повседневного использования – быстро, просто и полностью офлайн.",
+        app_view_details: "Подробнее",
+        features_title: "Возможности",
+        features_subtitle: "Все, что нужно для безопасного управления паролями",
+        feat_secure_title: "Безопасно и офлайн",
+        feat_secure_desc: "Вся генерация паролей происходит локально на вашем устройстве. Данные не отправляются на серверы при стандартном использовании. Опциональный лицензионный ключ может быть проверен онлайн.",
+        feat_fast_title: "Молниеносно быстро",
+        feat_fast_desc: "Генерируйте надежные пароли за секунды. Копируйте и используйте их сразу без задержек и осложнений.",
+        feat_custom_title: "Настраиваемый",
+        feat_custom_desc: "Настройте длину пароля, включите специальные символы, цифры и многое другое. Адаптируйте пароли под ваши конкретные потребности.",
+        feat_private_title: "Приватно",
+        feat_private_desc: "Без аккаунтов, без отслеживания, без облачного хранилища. Ваши пароли остаются на вашем устройстве и никогда его не покидают.",
+        feat_simple_title: "Простой интерфейс",
+        feat_simple_desc: "Чистый, интуитивный дизайн, который делает генерацию паролей легкой. Не требуется обучения.",
+        feat_security_title: "Сильная безопасность",
+        feat_security_desc: "Использует криптографически безопасную генерацию случайных чисел, чтобы гарантировать, что ваши пароли действительно случайны и безопасны.",
+        premium_title: "Профессиональный доступ к рабочим процессам",
+        premium_text_1: "Обычные пользователи полностью поддерживаются: вся генерация паролей и базовые функции истории доступны без каких-либо учетных данных или оплаты. Профессиональный доступ предназначен только для пользователей с конкретными рабочими процессами, требующими расширенного контроля.",
+        premium_text_2: "Для проверенных профессиональных рабочих процессов становятся доступны дополнительные настройки и расширенные возможности. Этот доступ опционален и не требуется для обычного использования приложения.",
+        premium_feat_export_title: "Экспорт паролей",
+        premium_feat_export_desc: "Стандартный экспорт доступен всем пользователям; форматы и улучшения переносимости ниже являются частью пакета профессионального доступа. Экспортируйте сгенерированные пароли в различные форматы (CSV, JSON, TXT) для резервного копирования и переносимости.",
+        premium_feat_settings_title: "Расширенные настройки",
+        premium_feat_settings_desc: "Для проверенных профессиональных рабочих процессов становятся доступны дополнительные настройки и расширенные шаблоны.",
+        premium_feat_history_title: "Расширенная история паролей",
+        premium_feat_history_desc: "Расширенная история и функциональность поиска (помимо стандартной истории, доступной всем пользователям).",
+        premium_feat_support_title: "Приоритетная поддержка",
+        premium_feat_support_desc: "Приоритетная поддержка для пользователей с требованиями к рабочим процессам.",
+        premium_feat_training_title: "Обучение паролям мобильного телефона",
+        premium_feat_training_desc: "Опциональный модуль обучения (профессиональный доступ).",
+        premium_request_btn: "Запросить профессиональный доступ",
+        faq_title: "Часто задаваемые вопросы",
+        faq_1_q: "Нужен ли мне лицензионный ключ для использования приложения?",
+        faq_1_a: "Нет. Приложение полностью работает без активации. Ключ нужен только для расширенной конфигурации.",
+        faq_2_q: "К чему предоставляет доступ ключ активации?",
+        faq_2_a: "Он предоставляет доступ к профессиональным рабочим процессам и расширенным возможностям, разработанным для проверенных пользователей с конкретными требованиями к рабочим процессам.",
+        faq_3_q: "Это подписка?",
+        faq_3_a: "Нет постоянной подписки. Учетные данные доступа предоставляются проверенным профессиональным пользователям.",
+        faq_4_q: "Подключается ли лицензия к серверу?",
+        faq_4_a: "Нет. Ключ работает офлайн.",
+        faq_5_q: "Нужна ли профессиональная проверка для получения лицензионного ключа?",
+        faq_5_a: "Да. Лицензионные ключи предоставляются только после ручной проверки и предназначены для пользователей с конкретными рабочими процессами. Они не требуются для обычных пользователей.",
+        support_title: "Поддержка",
+        support_subtitle: "Нужна помощь? Мы здесь для вас",
+        support_text: "Есть вопросы о MyPasSwordX или нужна помощь? Свяжитесь с нашей службой поддержки.",
+        support_contact: "📧 Связаться с поддержкой",
+        support_privacy: "🔐 Политика конфиденциальности",
+        support_terms: "📄 Условия использования",
+        footer_rights: "Все права защищены.",
+        footer_privacy: "Политика конфиденциальности",
+        footer_terms: "Условия использования"
+      },
+      hy: {
+        nav_apps: "Հավելվածներ",
+        nav_features: "Հատկություններ",
+        nav_support: "Աջակցություն",
+        nav_professional: "Մասնագիտական մուտք",
+        nav_appstore: "App Store",
+        hero_title: "Ամեն գաղտնիքը պարտադիր չէ, որ կողպեքի հետևում լինի:",
+        hero_subtitle: "MyPasSwordX-ը օգնում է ստեղծել ամուր, եզակի գաղտնաբառեր ամենօրյա օգտագործման համար – արագ, պարզ և ամբողջությամբ օֆլայն:",
+        hero_download_appstore: "Ներբեռնել App Store-ից",
+        hero_learn_more: "Իմանալ ավելին",
+        hero_key_features: "Հիմնական հատկանիշներ",
+        hero_built_for: "Ստեղծված անվտանգ, օֆլայն գաղտնաբառերի գեներացիայի համար:",
+        feature_1: "Բոլոր գաղտնաբառերի գեներացիան տեղի է ունենում տեղական ձեր սարքի վրա",
+        feature_2: "Տվյալներ չեն ուղարկվում սերվերներին ստանդարտ օգտագործման դեպքում",
+        feature_3: "Գեներացրեք ամուր գաղտնաբառեր վայրկյանների ընթացքում",
+        feature_4: "Հարմարեցրեք գաղտնաբառի երկարությունը, ներառեք հատուկ նիշեր, թվեր և ավելին",
+        feature_5: "Ակաունտներ չկան, հետևում չկա, ամպային պահեստ չկա",
+        feature_6: "Օգտագործում է ծածկագրականորեն անվտանգ պատահական թվերի գեներացիա",
+        feature_7: "Ամբողջությամբ աշխատում է <strong>օֆլայն</strong> – հուսալի ամենուր",
+        apps_title: "Մեր հավելվածները",
+        apps_subtitle: "Բացահայտեք NahapetFX-ի կողմից ստեղծված հավելվածները",
+        app_description: "Խելացի գաղտնաբառերի գեներատոր, որը օգնում է ստեղծել ամուր, եզակի գաղտնաբառեր ամենօրյա օգտագործման համար – արագ, պարզ և ամբողջությամբ օֆլայն:",
+        app_view_details: "Դիտել մանրամասները",
+        features_title: "Հատկություններ",
+        features_subtitle: "Ամեն ինչ, ինչ անհրաժեշտ է անվտանգ գաղտնաբառերի կառավարման համար",
+        feat_secure_title: "Անվտանգ և օֆլայն",
+        feat_secure_desc: "Բոլոր գաղտնաբառերի գեներացիան տեղի է ունենում տեղական ձեր սարքի վրա: Տվյալներ չեն ուղարկվում սերվերներին ստանդարտ օգտագործման դեպքում: Օպցիոնալ լիցենզիայի բանալին կարող է ստուգվել առցանց:",
+        feat_fast_title: "Կայծակնային արագ",
+        feat_fast_desc: "Գեներացրեք ամուր գաղտնաբառեր վայրկյանների ընթացքում: Պատճենեք և օգտագործեք դրանք անմիջապես առանց ուշացումների և բարդությունների:",
+        feat_custom_title: "Հարմարեցվող",
+        feat_custom_desc: "Հարմարեցրեք գաղտնաբառի երկարությունը, ներառեք հատուկ նիշեր, թվեր և ավելին: Հարմարեցրեք գաղտնաբառերը ձեր կոնկրետ կարիքներին:",
+        feat_private_title: "Մասնավոր",
+        feat_private_desc: "Ակաունտներ չկան, հետևում չկա, ամպային պահեստ չկա: Ձեր գաղտնաբառերը մնում են ձեր սարքի վրա և երբեք այն չեն լքում:",
+        feat_simple_title: "Պարզ ինտերֆեյս",
+        feat_simple_desc: "Մաքուր, ինտուիտիվ դիզայն, որը գաղտնաբառերի գեներացիան դարձնում է անջանք: Ուսուցում չի պահանջվում:",
+        feat_security_title: "Ուժեղ անվտանգություն",
+        feat_security_desc: "Օգտագործում է ծածկագրականորեն անվտանգ պատահական թվերի գեներացիա՝ ապահովելու համար, որ ձեր գաղտնաբառերը իսկապես պատահական և անվտանգ են:",
+        premium_title: "Մասնագիտական աշխատանքային հոսքերի մուտք",
+        premium_text_1: "Սովորական օգտատերերը լիովին աջակցվում են: բոլոր գաղտնաբառերի գեներացիան և հիմնական պատմության հատկությունները հասանելի են առանց որևէ հավատարմագրի կամ վճարման: Մասնագիտական մուտքը նախատեսված է միայն օգտատերերի համար, որոնք ունեն կոնկրետ աշխատանքային հոսքեր, որոնք պահանջում են ընդլայնված վերահսկողություն:",
+        premium_text_2: "Ստուգված մասնագիտական աշխատանքային հոսքերի համար դառնում են հասանելի լրացուցիչ կարգավորումներ և բարելավված հնարավորություններ: Այս մուտքը օպցիոնալ է և չի պահանջվում հավելվածի սովորական օգտագործման համար:",
+        premium_feat_export_title: "Արտահանել գաղտնաբառերը",
+        premium_feat_export_desc: "Ստանդարտ արտահանումը հասանելի է բոլոր օգտատերերին; ստորև նշված ձևաչափերը և փոխադրելիության բարելավումները մասնագիտական մուտքի փաթեթի մաս են: Արտահանեք ձեր գեներացված գաղտնաբառերը տարբեր ձևաչափերով (CSV, JSON, TXT) резервного копирования և փոխադրելիության համար:",
+        premium_feat_settings_title: "Բարելավված կարգավորումներ",
+        premium_feat_settings_desc: "Ստուգված մասնագիտական աշխատանքային հոսքերի համար դառնում են հասանելի լրացուցիչ կարգավորումներ և բարելավված օրինակներ:",
+        premium_feat_history_title: "Ընդլայնված գաղտնաբառերի պատմություն",
+        premium_feat_history_desc: "Ընդլայնված պատմություն և որոնման ֆունկցիոնալություն (ստանդարտ պատմությունից դուրս, որը հասանելի է բոլոր օգտատերերին):",
+        premium_feat_support_title: "Առաջնահերթ աջակցություն",
+        premium_feat_support_desc: "Առաջնահերթ աջակցություն աշխատանքային հոսքերի պահանջներ ունեցող օգտատերերի համար:",
+        premium_feat_training_title: "Բջջային հեռախոսի գաղտնաբառերի ուսուցում",
+        premium_feat_training_desc: "Օպցիոնալ ուսուցման մոդուլ (մասնագիտական մուտք):",
+        premium_request_btn: "Հայցել մասնագիտական մուտք",
+        faq_title: "Հաճախակի տրվող հարցեր",
+        faq_1_q: "Պահանջո՞ւմ է հավելվածը օգտագործելու համար լիցենզիայի բանալի:",
+        faq_1_a: "Ոչ: Հավելվածը ամբողջությամբ աշխատում է առանց ակտիվացման: Բանալին անհրաժեշտ է միայն առաջադեմ կարգավորման համար:",
+        faq_2_q: "Ի՞նչ հնարավորություններ է տալիս ակտիվացման բանալին:",
+        faq_2_a: "Այն տրամադրում է մուտք մասնագիտական աշխատանքային հոսքերին և բարելավված հնարավորություններին, որոնք նախագծված են ստուգված օգտատերերի համար կոնկրետ աշխատանքային հոսքերի պահանջներով:",
+        faq_3_q: "Սա բաժանորդագրությո՞ւն է:",
+        faq_3_a: "Շարունակական բաժանորդագրություն չկա: Մուտքի հավատարմագրերը տրամադրվում են ստուգված մասնագիտական օգտատերերին:",
+        faq_4_q: "Լիցենզիան միանո՞ւմ է սերվերին:",
+        faq_4_a: "Ոչ: Բանալին աշխատում է օֆլայն:",
+        faq_5_q: "Պահանջո՞ւմ է մասնագիտական ստուգում լիցենզիայի բանալի ստանալու համար:",
+        faq_5_a: "Այո: Լիցենզիայի բանալիները տրամադրվում են միայն ձեռքով ստուգումից հետո և նախատեսված են օգտատերերի համար կոնկրետ աշխատանքային հոսքերով: Դրանք չեն պահանջվում ընդհանուր օգտատերերի համար:",
+        support_title: "Աջակցություն",
+        support_subtitle: "Օգնության կարի՞ք: Մենք այստեղ ենք ձեզ համար",
+        support_text: "Հարցեր ունե՞ք MyPasSwordX-ի մասին կամ օգնության կարիք ունե՞ք: Կապ հաստատեք մեր աջակցության թիմի հետ:",
+        support_contact: "📧 Կապ աջակցության հետ",
+        support_privacy: "🔐 Գաղտնիության քաղաքականություն",
+        support_terms: "📄 Օգտագործման պայմաններ",
+        footer_rights: "Բոլոր իրավունքները պաշտպանված են:",
+        footer_privacy: "Գաղտնիության քաղաքականություն",
+        footer_terms: "Օգտագործման պայմաններ"
+      }
+    };
+
+    // Language management
+    let currentLang = localStorage.getItem('lang') || 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      updateLangSelector();
+      translatePage();
+    }
+
+    function updateLangSelector() {
+      const button = qs('#langButton');
+      const current = qs('#langCurrent');
+      const dropdown = qs('#langDropdown');
+      const options = qsa('.lang-selector__option');
+      
+      if (current) {
+        const langCodes = { en: 'EN', ru: 'RU', hy: 'HY' };
+        current.textContent = langCodes[currentLang] || 'EN';
+      }
+      
+      options.forEach(opt => {
+        opt.setAttribute('data-active', opt.getAttribute('data-lang') === currentLang);
+      });
+    }
+
+    function translatePage() {
+      const lang = translations[currentLang];
+      if (!lang) return;
+      
+      // Translate elements with data-i18n attribute
+      qsa('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (lang[key]) {
+          if (el.tagName === 'INPUT' && el.type === 'text') {
+            el.placeholder = lang[key];
+          } else {
+            // Preserve <strong> tags in feature_7
+            if (key === 'feature_7' && lang[key].includes('<strong>')) {
+              el.innerHTML = lang[key];
+            } else {
+              el.textContent = lang[key];
+            }
+          }
+        }
+      });
+      
+      // Update document language
+      document.documentElement.lang = currentLang;
+    }
+
+    function wireLanguageSelector() {
+      const button = qs('#langButton');
+      const dropdown = qs('#langDropdown');
+      const options = qsa('.lang-selector__option');
+      
+      if (!button || !dropdown) return;
+      
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.getAttribute('aria-hidden') === 'false';
+        dropdown.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+        button.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+      
+      options.forEach(opt => {
+        opt.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const lang = opt.getAttribute('data-lang');
+          if (lang) {
+            setLang(lang);
+            dropdown.setAttribute('aria-hidden', 'true');
+            button.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          dropdown.setAttribute('aria-hidden', 'true');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      // Initialize
+      updateLangSelector();
+      translatePage();
+    }
+
+    // Initialize language system
+    wireLanguageSelector();
   </script>
 </body>
 </html>

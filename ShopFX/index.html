@@ -53,15 +53,28 @@
         </a>
 
         <nav class="nav" aria-label="Navigation">
-          <a class="nav__link" href="#pricing">License</a>
-          <a class="nav__link" href="#faq">FAQ</a>
-          <a class="nav__link" href="#contact">Contact</a>
+          <a class="nav__link" href="#pricing" data-i18n="nav_license">License</a>
+          <a class="nav__link" href="#faq" data-i18n="nav_faq">FAQ</a>
+          <a class="nav__link" href="#contact" data-i18n="nav_contact">Contact</a>
         </nav>
 
-        <div class="topbar__cta">
-          <a class="btn btn--ghost" data-tutorial href="#">Tutorial</a>
-          <a class="btn btn--ghost" href="#pricing">License $129</a>
-          <a class="btn btn--primary" data-appstore href="#">App Store (Free)</a>
+        <div class="topbar__right">
+          <div class="lang-selector">
+            <button class="lang-selector__button" id="langButton" aria-label="Select language">
+              <span class="lang-selector__current" id="langCurrent">EN</span>
+              <svg class="lang-selector__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="lang-selector__dropdown" id="langDropdown" aria-hidden="true">
+              <button class="lang-selector__option" data-lang="en">English</button>
+              <button class="lang-selector__option" data-lang="ru">Русский</button>
+              <button class="lang-selector__option" data-lang="hy">Հայերեն</button>
+            </div>
+          </div>
+          <div class="topbar__cta">
+            <a class="btn btn--ghost" data-tutorial href="#" data-i18n="tutorial">Tutorial</a>
+          </div>
         </div>
       </div>
     </header>
@@ -78,8 +91,8 @@
 
             <div class="hero__detailsBox" aria-label="Product description">
               <div class="hero__detailsHead">
-                <div class="hero__detailsTitle">Key Features</div>
-                <div class="hero__detailsSubtitle">Built for clean, modern performances.</div>
+                <div class="hero__detailsTitle" data-i18n="key_features">Key Features</div>
+                <div class="hero__detailsSubtitle" data-i18n="built_for">Built for clean, modern performances.</div>
               </div>
 
               <ul class="hero__detailsList">
@@ -113,7 +126,7 @@
             </div>
 
             <div class="hero__visualActions">
-              <a class="btn btn--primary btn--lg" data-buy-key href="#" aria-label="Get License Key">
+              <a class="btn btn--primary btn--lg" data-buy-key href="#" aria-label="Get License Key" data-i18n="get_license_key">
                 Get License Key
               </a>
 
@@ -125,8 +138,8 @@
                   </svg>
                 </span>
                 <span>
-                  <span class="btn__kicker">Free download</span>
-                  <span class="btn__label">App Store</span>
+                  <span class="btn__kicker" data-i18n="free_download">Free download</span>
+                  <span class="btn__label" data-i18n="app_store">App Store</span>
                 </span>
               </a>
             </div>
@@ -137,47 +150,47 @@
       <section id="pricing" class="section">
         <div class="container">
           <div class="section__head">
-            <h2 class="section__title">Free download. One‑time activation.</h2>
-            <p class="section__subtitle">MyPasSwordX is free to download from the App Store. Activate with a license key for <strong>$129</strong>.</p>
+            <h2 class="section__title" data-i18n="pricing_title">Free download. One‑time activation.</h2>
+            <p class="section__subtitle" data-i18n="pricing_subtitle">MyPasSwordX is free to download from the App Store. Activate with a license key for <strong>$129</strong>.</p>
           </div>
 
           <div class="pricing">
             <article class="priceCard glassCard priceCard--highlight">
-              <div class="priceCard__badge">License</div>
+              <div class="priceCard__badge" data-i18n="license">License</div>
               <div class="priceCard__top">
-                <h3 class="priceCard__name">License Key</h3>
+                <h3 class="priceCard__name" data-i18n="license_key">License Key</h3>
                 <div class="priceCard__price">
                   <span class="priceCard__value">$129</span>
-                  <span class="priceCard__period">one‑time</span>
+                  <span class="priceCard__period" data-i18n="one_time">one‑time</span>
                 </div>
               </div>
               <ul class="list">
-                <li>Activate the full experience</li>
-                <li>Designed for professional performance</li>
-                <li>Works offline</li>
+                <li data-i18n="activate_full">Activate the full experience</li>
+                <li data-i18n="designed_professional">Designed for professional performance</li>
+                <li data-i18n="works_offline">Works offline</li>
               </ul>
-              <button class="btn btn--primary" data-buy-key data-plan="license">Get License Key</button>
+              <button class="btn btn--primary" data-buy-key data-plan="license" data-i18n="get_license_key">Get License Key</button>
             </article>
 
             <article class="priceCard glassCard">
               <div class="priceCard__top">
-                <h3 class="priceCard__name">App Store</h3>
+                <h3 class="priceCard__name" data-i18n="app_store">App Store</h3>
                 <div class="priceCard__price">
                   <span class="priceCard__value">Free</span>
-                  <span class="priceCard__period">download</span>
+                  <span class="priceCard__period" data-i18n="free_download">download</span>
                 </div>
               </div>
               <ul class="list">
-                <li>Download the app for free</li>
-                <li>Install in seconds</li>
-                <li>Activate later with a key</li>
+                <li data-i18n="download_free">Download the app for free</li>
+                <li data-i18n="install_seconds">Install in seconds</li>
+                <li data-i18n="activate_later">Activate later with a key</li>
               </ul>
-              <a class="btn btn--glass" data-appstore href="#">Open App Store</a>
+              <a class="btn btn--glass" data-appstore href="#" data-i18n="open_app_store">Open App Store</a>
             </article>
           </div>
 
-          <div class="fineprint">
-            By clicking “Get License Key”, you’ll be redirected to a secure checkout page. Your key is typically delivered instantly.
+          <div class="fineprint" data-i18n="fineprint">
+            By clicking "Get License Key", you'll be redirected to a secure checkout page. Your key is typically delivered instantly.
           </div>
         </div>
       </section>
@@ -185,8 +198,8 @@
       <section id="faq" class="section">
         <div class="container">
           <div class="section__head">
-            <h2 class="section__title">FAQ</h2>
-            <p class="section__subtitle">Quick answers before you perform.</p>
+            <h2 class="section__title" data-i18n="faq_title">FAQ</h2>
+            <p class="section__subtitle" data-i18n="faq_subtitle">Quick answers before you perform.</p>
           </div>
 
           <div class="faq">
@@ -225,12 +238,12 @@
         <div class="container">
           <div class="cta glassCard">
             <div class="cta__copy">
-              <h2 class="cta__title">Ready to perform with total confidence?</h2>
-              <p class="cta__subtitle">Download for free — activate with a $129 license key.</p>
+              <h2 class="cta__title" data-i18n="cta_title">Ready to perform with total confidence?</h2>
+              <p class="cta__subtitle" data-i18n="cta_subtitle">Download for free — activate with a $129 license key.</p>
             </div>
             <div class="cta__actions">
-              <a class="btn btn--primary btn--lg" data-buy-key href="#">Get License Key</a>
-              <a class="btn btn--glass btn--lg" data-appstore href="#">App Store (Free)</a>
+              <a class="btn btn--primary btn--lg" data-buy-key href="#" data-i18n="get_license_key">Get License Key</a>
+              <a class="btn btn--glass btn--lg" data-appstore href="#" data-i18n="appstore_btn">App Store (Free)</a>
             </div>
           </div>
         </div>
@@ -240,21 +253,21 @@
     <section id="contact" class="contact-section">
       <div class="container">
         <div class="contact-box glassCard">
-          <h2 class="contact-box__title">Contact Us</h2>
-          <p class="contact-box__subtitle">Get in touch if you have questions or need assistance</p>
+          <h2 class="contact-box__title" data-i18n="contact_title">Contact Us</h2>
+          <p class="contact-box__subtitle" data-i18n="contact_subtitle">Get in touch if you have questions or need assistance</p>
           <div class="contact-box__links">
             <a class="contact-link" href="mailto:Support@NahapetFX.com?subject=MyPasSwordX%20Support&body=Hello%2C%0A%0A">
               <span class="contact-link__icon">✉</span>
               <div class="contact-link__content">
-                <span class="contact-link__label">Email</span>
+                <span class="contact-link__label" data-i18n="email">Email</span>
                 <span class="contact-link__value">Support@NahapetFX.com</span>
               </div>
             </a>
             <a class="contact-link" href="https://wa.me/17472225020" target="_blank" rel="noopener noreferrer">
               <span class="contact-link__icon">💬</span>
               <div class="contact-link__content">
-                <span class="contact-link__label">WhatsApp</span>
-                <span class="contact-link__value">Technical Support</span>
+                <span class="contact-link__label" data-i18n="whatsapp">WhatsApp</span>
+                <span class="contact-link__value" data-i18n="technical_support">Technical Support</span>
               </div>
             </a>
           </div>
@@ -277,8 +290,8 @@
       <div class="modal__panel glassCard" role="document">
         <div class="modal__top">
           <div>
-            <div class="modal__title">License Key • $129</div>
-            <div class="modal__subtitle" id="modalPlan">One‑time activation for MyPasSwordX</div>
+            <div class="modal__title" data-i18n="modal_title">License Key • $129</div>
+            <div class="modal__subtitle" id="modalPlan" data-i18n="modal_subtitle">One‑time activation for MyPasSwordX</div>
           </div>
           <button class="iconBtn" type="button" aria-label="Close" data-close-modal>
             <span aria-hidden="true">×</span>
@@ -287,20 +300,17 @@
 
         <div class="modal__content">
           <div class="modal__box modal__box--primary">
-            <div class="modal__boxTitle">Secure Checkout</div>
+            <div class="modal__boxTitle" data-i18n="secure_checkout">Secure Checkout</div>
             <div class="payLayout">
               <div class="payLayout__left">
-                <p class="modal__boxText">
+                <p class="modal__boxText" data-i18n="checkout_text">
                   Click the button below to proceed to secure checkout.
                 </p>
                 <div class="paypalHostedWrap">
-                  <!-- Ziina Checkout Button (temporary) -->
-                  <a href="https://pay.ziina.com/nahapetfx/M0keAKG8l" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg" style="width: 100%; text-align: center; display: block; margin-bottom: 12px;">
+                  <!-- Checkout Button -->
+                  <button class="btn btn--primary btn--lg" style="width: 100%; text-align: center; display: block; margin-bottom: 12px;" data-i18n="checkout">
                     Checkout
-                  </a>
-                  <p style="text-align: center; font-size: 12px; color: var(--muted); margin: 0;">
-                    Powered by <strong>Ziina</strong>
-                  </p>
+                  </button>
                   
                   <!-- PayPal Button (temporarily hidden) -->
                   <div style="display: none;">
@@ -311,12 +321,13 @@
               </div>
 
               <div class="payLayout__right">
-                <div class="modal__boxTitle" style="margin-bottom: 1rem;">Promo Code</div>
+                <div class="modal__boxTitle" style="margin-bottom: 1rem;" data-i18n="promo_code">Promo Code</div>
                 <div style="margin-bottom: 0;">
                   <div style="display: flex; gap: 8px; margin-bottom: 8px;">
                     <input 
                       type="text" 
                       id="promoCode" 
+                      data-i18n-placeholder="enter_promo"
                       placeholder="Enter promo code" 
                       style="flex: 1; padding: 10px 14px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 8px; color: var(--text); font-size: 14px; font-family: inherit;"
                       autocomplete="off"
@@ -325,6 +336,7 @@
                       class="btn btn--ghost" 
                       id="applyPromo" 
                       style="white-space: nowrap;"
+                      data-i18n="apply"
                     >
                       Apply
                     </button>
@@ -332,17 +344,17 @@
                   <div id="promoMessage" style="font-size: 13px; min-height: 20px;"></div>
                 </div>
 
-                <div class="modal__boxTitle" style="margin-top: 0;">What happens next</div>
+                <div class="modal__boxTitle" style="margin-top: 0;" data-i18n="what_happens">What happens next</div>
                 <ul class="miniList" aria-label="What happens next">
-                  <li>Complete the payment</li>
-                  <li>Receive your license key within 24 hours</li>
-                  <li>Enter the key in MyPasSwordX to activate</li>
+                  <li data-i18n="complete_payment">Complete the payment</li>
+                  <li data-i18n="receive_key">Receive your license key within 24 hours</li>
+                  <li data-i18n="enter_key">Enter the key in MyPasSwordX to activate</li>
                 </ul>
-                <p class="modal__boxHint">
-                  Tip: If you don’t receive your key within 24 hours, please email us and include your transaction ID.
+                <p class="modal__boxHint" data-i18n="tip">
+                  Tip: If you don't receive your key within 24 hours, please email us and include your transaction ID.
                 </p>
                 <p class="modal__boxHint">
-                  Support:
+                  <span data-i18n="support">Support:</span>
                   <a class="inlineLink" href="mailto:Support@NahapetFX.com?subject=MyPasSwordX%20—%20License%20Key"
                     >Support@NahapetFX.com</a
                   >
@@ -360,8 +372,8 @@
       <div class="modal__panel glassCard" role="document">
         <div class="modal__top">
           <div>
-            <div class="modal__title">Tutorial Access</div>
-            <div class="modal__subtitle">Answer the question to continue</div>
+            <div class="modal__title" data-i18n="tutorial_modal_title">Tutorial Access</div>
+            <div class="modal__subtitle" data-i18n="tutorial_modal_subtitle">Answer the question to continue</div>
           </div>
           <button class="iconBtn" type="button" aria-label="Close" data-close-tutorial-modal>
             <span aria-hidden="true">×</span>
@@ -370,11 +382,12 @@
 
         <div class="modal__content">
           <div class="modal__box modal__box--primary">
-            <div class="modal__boxTitle">What is The Professor's surname?</div>
+            <div class="modal__boxTitle" data-i18n="tutorial_question">What is The Professor's surname?</div>
             <div style="margin-top: 1.5rem;">
               <input 
                 type="text" 
                 id="tutorialAnswer" 
+                data-i18n-placeholder="enter_answer"
                 placeholder="Enter your answer..." 
                 style="width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 12px; color: var(--text); font-size: 16px; font-family: inherit;"
                 autocomplete="off"
@@ -384,6 +397,7 @@
                 class="btn btn--primary" 
                 id="tutorialSubmit" 
                 style="width: 100%; margin-top: 16px;"
+                data-i18n="submit_answer"
               >
                 Submit Answer
               </button>
