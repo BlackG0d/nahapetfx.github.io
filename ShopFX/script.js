@@ -1054,6 +1054,10 @@ function wireLanguageSelector() {
   
   if (!button || !dropdown) return;
   
+  // Initialize dropdown state - ensure it's closed on load
+  dropdown.setAttribute('aria-hidden', 'true');
+  button.setAttribute('aria-expanded', 'false');
+  
   button.addEventListener('click', (e) => {
     e.stopPropagation();
     const isOpen = dropdown.getAttribute('aria-hidden') === 'false';
