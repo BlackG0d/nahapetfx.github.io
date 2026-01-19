@@ -146,6 +146,9 @@ function applyPromoCode() {
         if (currentLang === 'hy') {
           const discountedPriceAMD = Math.round(48800 * (1 - discount / 100));
           modalTitle.textContent = `Լիցենզիայի բանալի • ${discountedPriceAMD.toLocaleString('hy-AM')} ֏`;
+        } else if (currentLang === 'ru') {
+          const discountedPriceRUB = Math.round(11500 * (1 - discount / 100));
+          modalTitle.textContent = `Лицензионный ключ • ${discountedPriceRUB.toLocaleString('ru-RU')} ₽`;
         } else {
           modalTitle.textContent = `License Key • $${Math.round(discountedPrice)}`;
         }
@@ -380,7 +383,7 @@ const translations = {
     free_value: "Free",
     free_download: "Free download",
     pricing_title: "Free download. One‑time activation.",
-    pricing_subtitle: "MyPasSwordX is free to download from the App Store. Activate with a license key for $129.",
+    pricing_subtitle: "MyPasSwordX is free to download from the App Store. Activate with a license key.",
     license: "License",
     license_key: "License Key",
     price_value: "$129",
@@ -575,10 +578,10 @@ const translations = {
     free_value: "Бесплатно",
     free_download: "Бесплатная загрузка",
     pricing_title: "Бесплатная загрузка. Одноразовая активация.",
-    pricing_subtitle: "MyPasSwordX можно бесплатно скачать из App Store. Активируйте с помощью лицензионного ключа за $129.",
+    pricing_subtitle: "MyPasSwordX можно бесплатно скачать из App Store. Активируйте с помощью лицензионного ключа.",
     license: "Лицензия",
     license_key: "Лицензионный ключ",
-    price_value: "$129",
+    price_value: "11.500 ₽",
     one_time: "одноразовая",
     activate_full: "Активировать полный функционал",
     designed_professional: "Создано для профессиональных выступлений",
@@ -594,7 +597,7 @@ const translations = {
     faq_1_q: "Требуется ли приложению подключение к интернету?",
     faq_1_a: "Нет. MyPasSwordX работает полностью офлайн. Все функции и режимы работают без Wi‑Fi или мобильных данных.",
     faq_2_q: "Приложение бесплатное в App Store?",
-    faq_2_a: "Да. MyPasSwordX можно бесплатно скачать. Активация требует одноразовый лицензионный ключ за $129.",
+    faq_2_a: "Да. MyPasSwordX можно бесплатно скачать. Активация требует одноразовый лицензионный ключ за 11.500 ₽.",
     faq_3_q: "Подходит ли приложение для профессиональных выступлений?",
     faq_3_a: "Да. MyPasSwordX создано специально для фокусников, менталистов и иллюзионистов, выступающих в жанрах близкого контакта, сцены и казуальной магии.",
     faq_4_q: "Могу ли я настроить язык и внешний вид?",
@@ -604,13 +607,13 @@ const translations = {
     faq_6_q: "Может ли MyPasSwordX разблокировать телефон во время выступления?",
     faq_6_a: "Да. MyPasSwordX позволяет выполнить эффект, при котором вы можете разблокировать телефон — зрителя или исполнителя — без прикосновения к устройству и без знания настоящего пароля. Зритель может никогда не вводить свой настоящий код, но вы все равно сможете узнать его, назвать или разблокировать телефон как часть рутины.",
     cta_title: "Готовы выступать с полной уверенностью?",
-    cta_subtitle: "Скачайте бесплатно — активируйте с помощью лицензионного ключа за $129.",
+    cta_subtitle: "Скачайте бесплатно — активируйте с помощью лицензионного ключа за 11.500 ₽.",
     contact_title: "Свяжитесь с нами",
     contact_subtitle: "Свяжитесь с нами, если у вас есть вопросы или нужна помощь",
     email: "Email",
     whatsapp: "WhatsApp",
     technical_support: "Техническая поддержка",
-    modal_title: "Лицензионный ключ • $129",
+    modal_title: "Лицензионный ключ • 11.500 ₽",
     modal_subtitle: "Одноразовая активация для MyPasSwordX",
     secure_checkout: "Безопасная оплата",
     checkout_text: "Нажмите кнопку ниже, чтобы перейти на защищенную страницу оплаты.",
@@ -1025,11 +1028,7 @@ function translatePage() {
   const pricingSubtitle = qs('#pricing .section__subtitle');
   if (pricingTitle && lang.pricing_title) pricingTitle.textContent = lang.pricing_title;
   if (pricingSubtitle && lang.pricing_subtitle) {
-    if (currentLang === 'hy') {
-      pricingSubtitle.textContent = lang.pricing_subtitle;
-    } else {
-      pricingSubtitle.innerHTML = lang.pricing_subtitle.replace('$129', '<strong>$129</strong>');
-    }
+    pricingSubtitle.textContent = lang.pricing_subtitle;
   }
   
   // Translate FAQ
