@@ -176,7 +176,7 @@
               <div class="priceCard__top">
                 <h3 class="priceCard__name" data-i18n="app_store">App Store</h3>
                 <div class="priceCard__price">
-                  <span class="priceCard__value">Free</span>
+                  <span class="priceCard__value" data-i18n="free_value">Free</span>
                   <span class="priceCard__period" data-i18n="free_download">download</span>
                 </div>
               </div>
@@ -246,6 +246,14 @@
               <a class="btn btn--glass btn--lg" data-appstore href="#" data-i18n="appstore_btn">App Store (Free)</a>
             </div>
           </div>
+          <div class="cta__payments" aria-label="Payment methods">
+            <span class="cta__paymentsLabel">Payment methods:</span>
+            <div class="paymentIcons" aria-hidden="true">
+              <img class="paymentIcon paymentIcon--visa" src="https://anyrose.am/visa.svg" alt="Visa" title="Visa" />
+              <span class="paymentIcon paymentIcon--mastercard" title="MasterCard"></span>
+              <span class="paymentIcon paymentIcon--arca" title="ArCa"></span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -279,8 +287,8 @@
       <div class="container footer__inner">
         <div class="footer__note">© <span id="year"></span> All rights reserved.</div>
         <div class="footer__right">
-          <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
-          <a href="terms-of-use.html" class="footer__link">Terms of Use</a>
+          <a href="privacy-policy.html" class="footer__link" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer__link" data-i18n="footer_terms">Terms of Use</a>
         </div>
       </div>
     </footer>

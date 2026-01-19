@@ -48,10 +48,26 @@
         </a>
 
         <nav class="nav" aria-label="Navigation">
-          <a class="nav__link" href="index.html#pricing">License</a>
-          <a class="nav__link" href="index.html#faq">FAQ</a>
-          <a class="nav__link" href="index.html#contact">Contact</a>
+          <a class="nav__link" href="index.html#pricing" data-i18n="nav_license">License</a>
+          <a class="nav__link" href="index.html#faq" data-i18n="nav_faq">FAQ</a>
+          <a class="nav__link" href="index.html#contact" data-i18n="nav_contact">Contact</a>
         </nav>
+
+        <div class="topbar__right">
+          <div class="lang-selector">
+            <button class="lang-selector__button" id="langButton" aria-label="Select language">
+              <span class="lang-selector__current" id="langCurrent">EN</span>
+              <svg class="lang-selector__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="lang-selector__dropdown" id="langDropdown" aria-hidden="true">
+              <button class="lang-selector__option" data-lang="en">English</button>
+              <button class="lang-selector__option" data-lang="ru">Русский</button>
+              <button class="lang-selector__option" data-lang="hy">Հայերեն</button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -59,92 +75,92 @@
       <section class="section">
         <div class="container">
           <div class="section__head">
-            <h1 class="section__title">Privacy Policy</h1>
-            <p class="section__subtitle">Effective Date: <span id="effective-date"></span></p>
+            <h1 class="section__title" data-i18n="privacy_title">Privacy Policy</h1>
+            <p class="section__subtitle" data-i18n="privacy_effective_date">Effective Date: <span id="effective-date"></span></p>
           </div>
 
           <div class="glassCard" style="padding: 2.5rem; margin-top: 2rem;">
-            <p style="margin-top: 0;">
+            <p style="margin-top: 0;" data-i18n="privacy_intro">
               NahapetFX ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how information is collected, used, and protected when you visit this website or use our services, including the purchase of digital products.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">1. Information We Collect</h2>
-            <p>We may collect the following types of information:</p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section1_title">1. Information We Collect</h2>
+            <p data-i18n="privacy_section1_intro">We may collect the following types of information:</p>
             <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-              <li><strong>Contact Information:</strong> Email address for order processing and customer support</li>
-              <li><strong>Payment Information:</strong> Payment-related identifiers (such as transaction IDs) processed through secure third-party providers</li>
-              <li><strong>License Data:</strong> License key status, activation information, and related metadata</li>
-              <li><strong>Technical Information:</strong> Browser type, device information, IP address, and operating system data collected automatically</li>
+              <li><strong data-i18n="privacy_contact_label">Contact Information:</strong> <span data-i18n="privacy_contact_desc">Email address for order processing and customer support</span></li>
+              <li><strong data-i18n="privacy_payment_label">Payment Information:</strong> <span data-i18n="privacy_payment_desc">Payment-related identifiers (such as transaction IDs) processed through secure third-party providers</span></li>
+              <li><strong data-i18n="privacy_license_label">License Data:</strong> <span data-i18n="privacy_license_desc">License key status, activation information, and related metadata</span></li>
+              <li><strong data-i18n="privacy_technical_label">Technical Information:</strong> <span data-i18n="privacy_technical_desc">Browser type, device information, IP address, and operating system data collected automatically</span></li>
             </ul>
-            <p><strong>Information We Do Not Collect:</strong> We do not collect real passcodes, personal phone data, or other sensitive personal information beyond what is necessary for service delivery.</p>
+            <p><strong data-i18n="privacy_no_collect_label">Information We Do Not Collect:</strong> <span data-i18n="privacy_no_collect_desc">We do not collect real passcodes, personal phone data, or other sensitive personal information beyond what is necessary for service delivery.</span></p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">2. Payment Processing</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section2_title">2. Payment Processing</h2>
+            <p data-i18n="privacy_section2_text">
               All payments are processed securely through trusted third-party payment providers, including PayPal, credit/debit card processors, and Apple Pay. We do not store, process, or have access to your full payment card details or banking information. All payment data is handled exclusively by our certified payment processors in accordance with industry security standards.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">3. How We Use Your Information</h2>
-            <p>We use your information solely for the following purposes:</p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section3_title">3. How We Use Your Information</h2>
+            <p data-i18n="privacy_section3_intro">We use your information solely for the following purposes:</p>
             <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-              <li>To process and complete your payment transactions</li>
-              <li>To generate and deliver your license keys</li>
-              <li>To provide customer support and respond to inquiries</li>
-              <li>To prevent fraud, abuse, and unauthorized access</li>
-              <li>To improve our services, website functionality, and user experience</li>
+              <li data-i18n="privacy_use1">To process and complete your payment transactions</li>
+              <li data-i18n="privacy_use2">To generate and deliver your license keys</li>
+              <li data-i18n="privacy_use3">To provide customer support and respond to inquiries</li>
+              <li data-i18n="privacy_use4">To prevent fraud, abuse, and unauthorized access</li>
+              <li data-i18n="privacy_use5">To improve our services, website functionality, and user experience</li>
             </ul>
-            <p><strong>Data Sharing:</strong> We do not sell, rent, or share your personal data with third parties for marketing or advertising purposes. We may share information only with service providers who assist in payment processing, and only to the extent necessary to provide our services.</p>
+            <p><strong data-i18n="privacy_sharing_label">Data Sharing:</strong> <span data-i18n="privacy_sharing_text">We do not sell, rent, or share your personal data with third parties for marketing or advertising purposes. We may share information only with service providers who assist in payment processing, and only to the extent necessary to provide our services.</span></p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">4. Digital Products & Licensing</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section4_title">4. Digital Products & Licensing</h2>
+            <p data-i18n="privacy_section4_text">
               License keys are issued after successful payment verification and are associated with your account for activation and support purposes only. License data is used strictly to ensure proper product functionality, verify authenticity, and prevent unauthorized distribution or use. This information helps us provide technical support and maintain the integrity of our licensing system.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">5. Cookies & Analytics</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section5_title">5. Cookies & Analytics</h2>
+            <p data-i18n="privacy_section5_text">
               Our website may use basic cookies and analytics tools to enhance performance, analyze usage patterns, and improve user experience. These technologies do not collect personally identifiable information and are used solely for website optimization purposes. You can manage cookie preferences through your browser settings.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">6. Data Security</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section6_title">6. Data Security</h2>
+            <p data-i18n="privacy_section6_text">
               We implement reasonable technical and organizational security measures to protect your information against unauthorized access, loss, alteration, or misuse. However, no method of transmission over the internet or electronic storage is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">7. Your Rights</h2>
-            <p>Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section7_title">7. Your Rights</h2>
+            <p data-i18n="privacy_section7_intro">Depending on your jurisdiction, you may have the following rights regarding your personal data:</p>
             <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
-              <li><strong>Access:</strong> Request access to the personal data we hold about you</li>
-              <li><strong>Correction:</strong> Request correction of inaccurate or incomplete data</li>
-              <li><strong>Deletion:</strong> Request deletion of your personal data, subject to legal and operational requirements</li>
-              <li><strong>Withdrawal:</strong> Withdraw consent where processing is based on consent</li>
-              <li><strong>Portability:</strong> Request transfer of your data to another service provider where applicable</li>
+              <li><strong data-i18n="privacy_right_access_label">Access:</strong> <span data-i18n="privacy_right_access_desc">Request access to the personal data we hold about you</span></li>
+              <li><strong data-i18n="privacy_right_correction_label">Correction:</strong> <span data-i18n="privacy_right_correction_desc">Request correction of inaccurate or incomplete data</span></li>
+              <li><strong data-i18n="privacy_right_deletion_label">Deletion:</strong> <span data-i18n="privacy_right_deletion_desc">Request deletion of your personal data, subject to legal and operational requirements</span></li>
+              <li><strong data-i18n="privacy_right_withdrawal_label">Withdrawal:</strong> <span data-i18n="privacy_right_withdrawal_desc">Withdraw consent where processing is based on consent</span></li>
+              <li><strong data-i18n="privacy_right_portability_label">Portability:</strong> <span data-i18n="privacy_right_portability_desc">Request transfer of your data to another service provider where applicable</span></li>
             </ul>
-            <p>To exercise any of these rights, please contact us using the information provided in the Contact section below.</p>
+            <p data-i18n="privacy_section7_footer">To exercise any of these rights, please contact us using the information provided in the Contact section below.</p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">8. Third-Party Services</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section8_title">8. Third-Party Services</h2>
+            <p data-i18n="privacy_section8_text">
               Our website may contain links to third-party websites or integrate with third-party services (such as payment processors). We are not responsible for the privacy practices, content, or security of these external websites or services. We encourage you to review the privacy policies of any third-party services you interact with.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">9. Data Retention</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section9_title">9. Data Retention</h2>
+            <p data-i18n="privacy_section9_text">
               We retain your personal data only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, comply with legal obligations, resolve disputes, and enforce our agreements. License-related data may be retained for the duration of your license validity and for a reasonable period thereafter for support and verification purposes.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">10. Children's Privacy</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section10_title">10. Children's Privacy</h2>
+            <p data-i18n="privacy_section10_text">
               Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately so we can delete such information.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">11. Changes to This Policy</h2>
-            <p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section11_title">11. Changes to This Policy</h2>
+            <p data-i18n="privacy_section11_text">
               We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. Any material changes will be posted on this page with an updated effective date. We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
             </p>
 
-            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;">12. Contact Information</h2>
-            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+            <h2 style="margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.5rem; font-weight: 600;" data-i18n="privacy_section12_title">12. Contact Information</h2>
+            <p data-i18n="privacy_section12_intro">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
             <p style="margin-top: 1rem;">
-              <strong>Email:</strong> <a href="mailto:support@nahapetfx.com" style="color: var(--a); text-decoration: underline;">support@nahapetfx.com</a><br />
-              <strong>Website:</strong> <a href="https://nahapetfx.com" style="color: var(--a); text-decoration: underline;">https://nahapetfx.com</a>
+              <strong data-i18n="privacy_email_label">Email:</strong> <a href="mailto:support@nahapetfx.com" style="color: var(--a); text-decoration: underline;">support@nahapetfx.com</a><br />
+              <strong data-i18n="privacy_website_label">Website:</strong> <a href="https://nahapetfx.com" style="color: var(--a); text-decoration: underline;">https://nahapetfx.com</a>
             </p>
           </div>
         </div>
@@ -153,14 +169,15 @@
 
     <footer class="footer">
       <div class="container footer__inner">
-        <div class="footer__note">© <span id="year"></span> All rights reserved.</div>
+        <div class="footer__note">© <span id="year"></span> <span data-i18n="footer_rights">All rights reserved.</span></div>
         <div class="footer__right">
-          <a href="privacy-policy.html" class="footer__link">Privacy Policy</a>
-          <a href="terms-of-use.html" class="footer__link">Terms of Use</a>
+          <a href="privacy-policy.html" class="footer__link" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="terms-of-use.html" class="footer__link" data-i18n="footer_terms">Terms of Use</a>
         </div>
       </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
       // Set current year
       document.getElementById('year').textContent = new Date().getFullYear();
@@ -169,15 +186,28 @@
       const dateElement = document.getElementById('effective-date');
       if (dateElement) {
         const today = new Date();
-        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-        const month = months[today.getMonth()];
+        const months = {
+          en: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+          ru: ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'],
+          hy: ['հունվարի', 'փետրվարի', 'մարտի', 'ապրիլի', 'մայիսի', 'հունիսի', 'հուլիսի', 'օգոստոսի', 'սեպտեմբերի', 'հոկտեմբերի', 'նոյեմբերի', 'դեկտեմբերի']
+        };
+        const currentLang = localStorage.getItem('lang') || 'en';
+        const monthNames = months[currentLang] || months.en;
+        const month = monthNames[today.getMonth()];
         const day = today.getDate();
         const year = today.getFullYear();
-        dateElement.textContent = `${month} ${day}, ${year}`;
+        
+        if (currentLang === 'ru' || currentLang === 'hy') {
+          dateElement.textContent = `${day} ${month}, ${year}`;
+        } else {
+          dateElement.textContent = `${month} ${day}, ${year}`;
+        }
       }
     </script>
   </body>
 </html>
+
+
 
 
 
