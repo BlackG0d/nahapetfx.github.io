@@ -100,7 +100,21 @@ function resetPromoCode() {
     promoMessage.textContent = "";
   }
   if (modalTitle) {
-    modalTitle.textContent = `License Key • $${originalPrice}`;
+    const lang = translations[currentLang] || translations.en;
+    if (lang && lang.modal_title) {
+      modalTitle.textContent = lang.modal_title;
+    } else {
+      modalTitle.textContent = `License Key • $${originalPrice}`;
+    }
+  }
+  
+  // Reset price in price card
+  const priceValue = qs('.priceCard__value');
+  if (priceValue) {
+    const lang = translations[currentLang] || translations.en;
+    if (lang && lang.price_value) {
+      priceValue.textContent = lang.price_value;
+    }
   }
 }
 
@@ -129,7 +143,12 @@ function applyPromoCode() {
       
       // Update price display
       if (modalTitle) {
-        modalTitle.textContent = `License Key • $${Math.round(discountedPrice)}`;
+        if (currentLang === 'hy') {
+          const discountedPriceAMD = Math.round(48800 * (1 - discount / 100));
+          modalTitle.textContent = `Լիցենզիայի բանալի • ${discountedPriceAMD.toLocaleString('hy-AM')} ֏`;
+        } else {
+          modalTitle.textContent = `License Key • $${Math.round(discountedPrice)}`;
+        }
       }
       
       // Show success message
@@ -364,6 +383,7 @@ const translations = {
     pricing_subtitle: "MyPasSwordX is free to download from the App Store. Activate with a license key for $129.",
     license: "License",
     license_key: "License Key",
+    price_value: "$129",
     one_time: "one‑time",
     activate_full: "Activate the full experience",
     designed_professional: "Designed for professional performance",
@@ -558,6 +578,7 @@ const translations = {
     pricing_subtitle: "MyPasSwordX можно бесплатно скачать из App Store. Активируйте с помощью лицензионного ключа за $129.",
     license: "Лицензия",
     license_key: "Лицензионный ключ",
+    price_value: "$129",
     one_time: "одноразовая",
     activate_full: "Активировать полный функционал",
     designed_professional: "Создано для профессиональных выступлений",
@@ -749,9 +770,10 @@ const translations = {
     free_value: "Անվճար",
     free_download: "Անվճար ներբեռնում",
     pricing_title: "Անվճար ներբեռնում։ Մեկանգամյա ակտիվացում։",
-    pricing_subtitle: "MyPasSwordX-ը հասանելի է անվճար ներբեռնման համար App Store-ում։ Ակտիվացումը կատարվում է մեկանգամյա լիցենզիայի բանալիով՝ $129 արժեքով։",
+    pricing_subtitle: "MyPasSwordX-ը հասանելի է անվճար ներբեռնման համար App Store-ում։ Ակտիվացումը կատարվում է մեկանգամյա լիցենզիայի բանալիով:",
     license: "Լիցենզիա",
     license_key: "Լիցենզիայի բանալի",
+    price_value: "48.800 ֏",
     one_time: "մեկանգամյա վճարում",
     activate_full: "Ակտիվացրեք ամբողջական փորձառությունը",
     designed_professional: "Ստեղծված է պրոֆեսիոնալ կատարումների համար",
@@ -767,7 +789,7 @@ const translations = {
     faq_1_q: "Արդյո՞ք հավելվածը պահանջում է ինտերնետ կապ։",
     faq_1_a: "Ոչ։ MyPasSwordX-ը աշխատում է ամբողջությամբ offline ռեժիմում։ Բոլոր հնարավորություններն ու ռեժիմները հասանելի են առանց Wi-Fi-ի կամ բջջային տվյալների։",
     faq_2_q: "Արդյո՞ք հավելվածը անվճար է App Store-ում։",
-    faq_2_a: "Այո։ MyPasSwordX-ը հասանելի է անվճար ներբեռնման համար։ Լիարժեք ակտիվացման համար անհրաժեշտ է մեկանգամյա լիցենզիայի բանալի՝ $129 արժեքով։",
+    faq_2_a: "Այո։ MyPasSwordX-ը հասանելի է անվճար ներբեռնման համար։ Լիարժեք ակտիվացման համար անհրաժեշտ է մեկանգամյա լիցենզիայի բանալի՝ 48.800 ֏ արժեքով։",
     faq_3_q: "Արդյո՞ք հավելվածը հարմար է պրոֆեսիոնալ կատարումների համար։",
     faq_3_a: "Այո։ MyPasSwordX-ը ստեղծված է հատուկ աճպարարների, մենտալիստների և իլյուզիոնիստների համար՝ թե՛ close-up, թե՛ բեմական և թե՛ ոչ ֆորմալ կատարումների ընթացքում օգտագործելու համար։",
     faq_4_q: "Կարո՞ղ եմ հարմարեցնել լեզուն և տեսքը։",
@@ -777,13 +799,13 @@ const translations = {
     faq_6_q: "Կարո՞ղ է MyPasSwordX-ը բացել հեռախոսը ներկայացման ժամանակ:",
     faq_6_a: "Այո: MyPasSwordX-ը թույլ է տալիս կատարել էֆեկտ, որտեղ դուք կարող եք բացել հեռախոս — հանդիսատեսի կամ կատարողի — առանց սարքին դիպչելու և առանց իրական գաղտնաբառը իմանալու: Հանդիսատեսը կարող է երբեք չմուտքագրել իր իրական կոդը, բայց դուք դեռ կկարողանաք իմանալ այն, անվանել կամ բացել հեռախոսը որպես ռուտինի մաս:",
     cta_title: "Պատրա՞ստ եք վստահորեն ցուցադրել ելույթի ընթացքում։",
-    cta_subtitle: "Ներբեռնեք անվճար և ակտիվացրեք մեկանգամյա $129 արժողությամբ լիցենզիայի բանալիով։",
+    cta_subtitle: "Ներբեռնեք անվճար և ակտիվացրեք մեկանգամյա 48.800 ֏ արժողությամբ լիցենզիայի բանալիով։",
     contact_title: "Կապ մեզ հետ",
     contact_subtitle: "Կապվեք մեզ հետ, եթե ունեք հարցեր կամ անհրաժեշտ է աջակցություն։",
     email: "Էլ. փոստ",
     whatsapp: "WhatsApp",
     technical_support: "Տեխնիկական աջակցություն",
-    modal_title: "Լիցենզիայի բանալի • $129",
+    modal_title: "Լիցենզիայի բանալի • 48.800 ֏",
     modal_subtitle: "Միանվագ ակտիվացում MyPasSwordX-ի համար",
     secure_checkout: "Անվտանգ վճարում",
     checkout_text: "Սեղմեք ստորև գտնվող կոճակը անվտանգ վճարման էջին անցնելու համար:",
@@ -1003,7 +1025,11 @@ function translatePage() {
   const pricingSubtitle = qs('#pricing .section__subtitle');
   if (pricingTitle && lang.pricing_title) pricingTitle.textContent = lang.pricing_title;
   if (pricingSubtitle && lang.pricing_subtitle) {
-    pricingSubtitle.innerHTML = lang.pricing_subtitle.replace('$129', '<strong>$129</strong>');
+    if (currentLang === 'hy') {
+      pricingSubtitle.textContent = lang.pricing_subtitle;
+    } else {
+      pricingSubtitle.innerHTML = lang.pricing_subtitle.replace('$129', '<strong>$129</strong>');
+    }
   }
   
   // Translate FAQ
@@ -1039,6 +1065,12 @@ function translatePage() {
   const contactSubtitle = qs('.contact-box__subtitle');
   if (contactTitle && lang.contact_title) contactTitle.textContent = lang.contact_title;
   if (contactSubtitle && lang.contact_subtitle) contactSubtitle.textContent = lang.contact_subtitle;
+  
+  // Translate price value
+  const priceValue = qs('.priceCard__value');
+  if (priceValue && lang.price_value) {
+    priceValue.textContent = lang.price_value;
+  }
   
   // Translate modal
   const modalTitle = qs('#buyModal .modal__title');
